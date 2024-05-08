@@ -6,9 +6,11 @@ author_profile: true
 ---
 
 ## Thesis
-* [Certifiable Random Number Generation Using Nonlocal Games](https://dimitristsin.github.io/files/thesis.pdf)\\
+* [Certifiable Random Number Generation Using Nonlocal Games](https://dimitristsin.github.io/files/thesis.pdf)
+  
 Diploma Thesis, supervised by [Alex Bredariol Grilo](https://abgrilo.github.io/)
-* [Sheaves on Topological Spaces, Sites and Group Categories](https://dimitristsin.github.io/files/thesis_math.pdf)\\
+* [Sheaves on Topological Spaces, Sites and Group Categories](https://dimitristsin.github.io/files/thesis_math.pdf)
+  
 Master's Thesis, supervised by [Chrysostomos Psaroudakis](https://sites.google.com/view/chrysostomos-psaroudakis/home)
 
 ## Notes
