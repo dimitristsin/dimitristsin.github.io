@@ -1,10 +1,10 @@
 ---
-permalink: /markdown/
-title: "Markdown"
+permalink: /resources/
+title: "resources"
 author_profile: true
 redirect_from: 
-  - /md/
-  - /markdown.html
+  - /resources/
+  - /resources.html
 ---
 
 # Complexity Theory Courses
