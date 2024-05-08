@@ -1,5 +1,14 @@
+---
+permalink: /markdown/
+title: "Markdown"
+author_profile: true
+redirect_from: 
+  - /md/
+  - /markdown.html
+---
+
 # Complexity Theory Courses
 
-# Notes on Geometric Complexity Theory
+# Algebraic Complexity Theory
 
 # Bounded Arithmetic
