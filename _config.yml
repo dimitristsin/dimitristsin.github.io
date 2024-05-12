@@ -24,8 +24,8 @@ author:
   avatar           : "profile.png"
   name             : "Dimitrios Tsintsilidas"
   pronouns         : "he/him" # example: "she/her"  
-  bio              : "I'm just a student"
-  location         : "Milky Way Galaxy"
+#  bio              : "I'm just a student"
+#  location         : "Milky Way Galaxy"
   employer         : "University of Warwick"
   uri              : # URL
   email            : "jim.jt99@outlook.com" 
