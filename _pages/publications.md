@@ -5,6 +5,9 @@ permalink: /publications/
 author_profile: true
 ---
 
+## Preprint
+* [Provability of the Circuit Size Hierarchy and Its Consequences](https://dimitristsin.github.io/files/Circuit_Size_Hierarchy_Bounded_Arithmetic.pdf)
+
 ## Thesis
 * [Certifiable Random Number Generation Using Nonlocal Games](https://dimitristsin.github.io/files/thesis.pdf)\
   Diploma Thesis, supervised by [Alex Bredariol Grilo](https://abgrilo.github.io/)
