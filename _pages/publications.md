@@ -6,7 +6,7 @@ author_profile: true
 ---
 
 ## Preprints
-* [Provability of the Circuit Size Hierarchy and Its Consequences](https://dimitristsin.github.io/files/Circuit_Size_Hierarchy_Bounded_Arithmetic.pdf)
+* [Provability of the Circuit Size Hierarchy and Its Consequences](https://dimitristsin.github.io/files/Circuit_Size_Hierarchy_Bounded_Arithmetic.pdf)\
   joint work with Marco Carmosino, Valentine Kabanets, Antonina Kolokolova and Igor C. Oliveira
 
 ## Thesis
