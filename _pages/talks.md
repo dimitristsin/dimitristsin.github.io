@@ -1,13 +1,11 @@
 ---
 layout: archive
-title: "Talks"
+title: "Talks and Presentations"
 permalink: /talks/
 author_profile: true
 ---
 
-# Talks and Presentations
-
-### Provability of the Circuit Size Hierarchy
+## Provability of the Circuit Size Hierarchy
 * [Proof Complexity Workshop](https://sites.google.com/view/proofcomplexity2024/home)\
   University of Oxford, 3-5 September 2024
 
