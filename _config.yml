@@ -334,3 +334,16 @@ compress_html:
   clippings: all
   ignore:
     envs: development
+
+
+# New changes Custom style settings
+minimal_mistakes_skin: "default"
+
+# Google Fonts
+google_fonts: "Merriweather:400,700|Lato:400,700"
+
+# Include custom stylesheet
+sass:
+  sass_dir: _sass
+  style: compressed
+
