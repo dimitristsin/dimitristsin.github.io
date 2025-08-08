@@ -1,4 +1,3 @@
-// js/publications.js
 document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('pub-modal');
     const modalBody = document.getElementById('modal-body');
@@ -12,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (this.hasAttribute('data-pdf')) {
                 // Show PDF in modal
                 modalBody.innerHTML = `
+                    <h3>${this.closest('.publication-item').querySelector('.pub-title').textContent}</h3>
                     <iframe src="${this.getAttribute('data-pdf')}" 
                             style="width:100%; height:70vh;" 
                             frameborder="0"></iframe>
@@ -19,9 +19,29 @@ document.addEventListener('DOMContentLoaded', function() {
             } else if (this.hasAttribute('data-abstract')) {
                 // Show abstract in modal
                 modalBody.innerHTML = `
-                    <h3>Abstract</h3>
-                    <p>${this.getAttribute('data-abstract')}</p>
+                    <h3>${this.closest('.publication-item').querySelector('.pub-title').textContent}</h3>
+                    <p><em>${this.closest('.publication-item').querySelector('.pub-authors').textContent}</em></p>
+                    <div class="abstract-content">
+                        <h4>Abstract</h4>
+                        <p>${this.getAttribute('data-abstract')}</p>
+                    </div>
                 `;
+            } else if (this.hasAttribute('data-bibtex')) {
+                // Show BibTeX in modal
+                modalBody.innerHTML = `
+                    <h3>${this.closest('.publication-item').querySelector('.pub-title').textContent}</h3>
+                    <pre><code>${this.getAttribute('data-bibtex')}</code></pre>
+                    <button class="copy-bibtex">Copy to Clipboard</button>
+                `;
+                
+                // Add copy functionality
+                modal.querySelector('.copy-bibtex').addEventListener('click', function() {
+                    navigator.clipboard.writeText(this.previousElementSibling.textContent);
+                    this.textContent = 'Copied!';
+                    setTimeout(() => {
+                        this.textContent = 'Copy to Clipboard';
+                    }, 2000);
+                });
             }
             
             modal.style.display = 'block';
@@ -43,10 +63,13 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.main-nav a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                window.scrollTo({
+                    top: target.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            }
         });
     });
 });
