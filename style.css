@@ -1,31 +1,23 @@
-/* Computational Complexity Theme */
+/* Modern Color Scheme */
 :root {
-    --primary: #2c3e50;       /* P - Dark blue */
-    --secondary: #e74c3c;     /* NP - Red */
-    --tertiary: #3498db;      /* Polynomial - Blue */
-    --proof: #27ae60;         /* Verification - Green */
-    --counter: #e67e22;       /* Counterexamples - Orange */
-    --ph: #9b59b6;            /* Polynomial hierarchy - Purple */
+    --primary: #2c3e50;
+    --secondary: #3498db;
     --light: #ecf0f1;
-    --dark: #1a252f;
-    --text: #2c3e50;
+    --dark: #2c3e50;
+    --text: #333;
     --bg: #f9f9f9;
-    --card-bg: #ffffff;
-    --border: #ddd;
 }
 
-/* Dark Mode - Complexity Classes */
+/* Dark Mode Colors */
 .dark-mode {
-    --primary: #3498db;       /* P becomes bright blue */
-    --secondary: #e74c3c;     /* NP remains red */
-    --proof: #2ecc71;         /* Brighter green */
+    --primary: #3498db;
+    --secondary: #2c3e50;
     --text: #ecf0f1;
-    --bg: #1a252f;
-    --card-bg: #2c3e50;
-    --border: #34495e;
+    --bg: #2c3e50;
+    --light: #bdc3c7;
 }
 
-/* Base Styles with Computational Typography */
+/* Base Styles */
 body {
     font-family: 'Lato', sans-serif;
     line-height: 1.6;
@@ -36,16 +28,9 @@ body {
     transition: background 0.3s ease, color 0.3s ease;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3 {
     font-family: 'Merriweather', serif;
     color: var(--primary);
-}
-
-.math-notation {
-    font-family: 'Fira Code', monospace;
-    font-size: 0.8em;
-    color: var(--secondary);
-    opacity: 0.7;
 }
 
 /* Layout */
@@ -125,20 +110,17 @@ h1, h2, h3, h4 {
     padding: 0 0.5rem;
 }
 
-
-/* About Section with Complexity Badge */
+/* About Section */
 .about-section {
     display: flex;
     gap: 3rem;
     margin: 3rem 0;
     align-items: center;
-    position: relative;
 }
 
 .profile-container {
     flex: 1;
     max-width: 300px;
-    position: relative;
 }
 
 .profile-img {
@@ -146,88 +128,44 @@ h1, h2, h3, h4 {
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
-    border: 2px solid var(--primary);
 }
 
 .profile-img:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-}
-
-.complexity-badge {
-    position: absolute;
-    top: -15px;
-    right: -15px;
-    background: var(--secondary);
-    color: white;
-    padding: 0.3rem 0.6rem;
-    border-radius: 20px;
-    font-family: 'Fira Code', monospace;
-    font-size: 0.8rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    z-index: 1;
 }
 
 .about-text {
     flex: 2;
 }
 
-.complexity-notice {
-    background: rgba(39, 174, 96, 0.1);
-    border-left: 3px solid var(--proof);
-    padding: 0.8rem;
-    margin-top: 1.5rem;
-    font-style: italic;
-    position: relative;
-}
-
-.qed {
-    font-family: 'Fira Code', monospace;
-    font-weight: bold;
-    color: var(--proof);
-    margin-right: 0.5rem;
-}
-
-/* Research Interests Cards */
+/* Research Section */
 .research-section {
     margin: 4rem 0;
 }
 
 .interests-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
     margin-top: 2rem;
 }
 
 .interest-card {
-    background: var(--card-bg);
+    background: white;
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-    border-left: 4px solid var(--secondary);
+    border-left: 3px solid var(--secondary);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    overflow: hidden;
 }
 
 .dark-mode .interest-card {
-    background: var(--dark);
+    background: #34495e;
 }
 
 .interest-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-}
-
-
-.complexity-class {
-    font-family: 'Fira Code', monospace;
-    color: var(--tertiary);
-    font-size: 0.9rem;
-    margin-top: 1rem;
-    padding-top: 0.5rem;
-    border-top: 1px dashed var(--border);
 }
 
 /* Publications Section */
@@ -239,37 +177,17 @@ h1, h2, h3, h4 {
     margin-bottom: 3rem;
 }
 
-.publication-category h3 {
-    position: relative;
-    padding-bottom: 0.5rem;
-}
-
-.publication-category h3::after {
-    content: '';
-    display: block;
-    height: 3px;
-    width: 0;
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
-    margin-top: 0.5rem;
-    transition: width 1s ease;
-}
-
-.publication-category:hover h3::after {
-    width: 100%;
-}
-
 .publication-item {
-    background: var(--card-bg);
+    background: white;
     padding: 1.5rem;
     margin: 1.5rem 0;
     border-radius: 8px;
     border-left: 4px solid var(--secondary);
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    position: relative;
 }
 
 .dark-mode .publication-item {
-    background: var(--dark);
+    background: #34495e;
 }
 
 .pub-title {
@@ -288,7 +206,6 @@ h1, h2, h3, h4 {
 .pub-links {
     display: flex;
     gap: 1rem;
-    flex-wrap: wrap;
 }
 
 .pub-link {
@@ -298,24 +215,11 @@ h1, h2, h3, h4 {
     border: 1px solid var(--secondary);
     border-radius: 4px;
     transition: all 0.3s ease;
-    font-size: 0.9rem;
 }
 
 .pub-link:hover {
     background: var(--secondary);
     color: white;
-}
-
-.pub-link[data-pdf]::before {
-    content: '📄 ';
-}
-
-.pub-link[data-abstract]::before {
-    content: '📝 ';
-}
-
-.pub-link[data-bibtex]::before {
-    content: '⎘ ';
 }
 
 /* Teaching Section */
@@ -324,92 +228,15 @@ h1, h2, h3, h4 {
 }
 
 .teaching-item {
-    background: var(--card-bg);
+    background: white;
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-    border-left: 4px solid var(--tertiary);
+    border-left: 3px solid var(--secondary);
 }
 
 .dark-mode .teaching-item {
-    background: var(--dark);
-}
-
-.course-topics {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    margin-top: 1rem;
-}
-
-.course-topics span {
-    background: rgba(52, 152, 219, 0.1);
-    color: var(--tertiary);
-    padding: 0.2rem 0.6rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-}
-
-/* Footer with Complexity Legend */
-.main-footer {
-    background: var(--primary);
-    color: white;
-    padding: 2rem;
-    margin-top: 3rem;
-    position: relative;
-}
-
-.main-footer::before {
-    content: 'P ≟ NP';
-    font-family: 'Fira Code', monospace;
-    position: absolute;
-    left: 2rem;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--secondary);
-    opacity: 0.7;
-}
-
-.contact-info {
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.contact-info a {
-    color: white;
-}
-
-.footer-bottom {
-    text-align: center;
-    margin-top: 2rem;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
-}
-
-.complexity-legend {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-top: 1rem;
-    font-family: 'Fira Code', monospace;
-    font-size: 0.9rem;
-}
-
-.legend-item {
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-}
-
-.p-color::before {
-    color: var(--primary);
-}
-.np-color::before {
-    color: var(--secondary);
-}
-.ph-color::before {
-    color: var(--ph);
+    background: #34495e;
 }
 
 /* Modal Styles */
@@ -434,8 +261,6 @@ h1, h2, h3, h4 {
     position: relative;
     max-height: 80vh;
     overflow-y: auto;
-    border-left: 5px solid var(--proof);
-    counter-reset: theorem;
 }
 
 .close-modal {
@@ -447,64 +272,27 @@ h1, h2, h3, h4 {
     color: var(--text);
 }
 
-#modal-body {
-    padding: 1rem 0;
+/* Footer */
+.main-footer {
+    background: var(--primary);
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 3rem;
 }
 
-#modal-body h3 {
-    margin-top: 0;
+.footer-links {
+    margin-top: 1rem;
 }
 
-#modal-body h3::before {
-    counter-increment: theorem;
-    content: 'Theorem ' counter(theorem) ': ';
-    color: var(--proof);
-    font-family: 'Fira Code', monospace;
+.footer-links a {
+    color: white;
+    margin: 0 1rem;
+    text-decoration: none;
 }
 
-#modal-body iframe {
-    width: 100%;
-    height: 70vh;
-    border: none;
-}
-
-/* Computational Background Pattern */
-body::after {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: 
-        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
-    background-size: 20px 20px;
-    z-index: -1;
-    pointer-events: none;
-}
-
-.dark-mode body::after {
-    background-image: 
-        linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px);
-}
-
-/* Turing Machine Tape Effect */
-.main-header::after {
-    content: '';
-    position: absolute;
-    bottom: -3px;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: repeating-linear-gradient(
-        90deg,
-        var(--primary),
-        var(--primary) 20px,
-        var(--secondary) 20px,
-        var(--secondary) 40px
-    );
+.footer-links a:hover {
+    text-decoration: underline;
 }
 
 /* Responsive Design */
@@ -515,22 +303,11 @@ body::after {
     
     .profile-container {
         max-width: 200px;
-        margin: 0 auto 1.5rem;
+        margin-bottom: 1.5rem;
     }
     
     .main-nav {
         gap: 1rem;
-    }
-    
-    .main-nav::before,
-    .main-footer::before {
-        display: none;
-    }
-    
-    .header-content h1::after {
-        position: static;
-        display: block;
-        margin-top: 0.5rem;
     }
     
     .pub-links {
@@ -540,9 +317,5 @@ body::after {
     .modal-content {
         width: 90%;
         padding: 1.5rem;
-    }
-    
-    .interests-grid {
-        grid-template-columns: 1fr;
     }
 }
