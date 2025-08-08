@@ -1,89 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dimitrios Tsintsilidas - Academic Homepage</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&display=swap" as="style">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dimitrios Tsintsilidas | Computational Complexity</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body class="light-mode">
-
-    <!-- Navigation -->
-    <nav class="main-nav">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="pages/publications.html">Publications</a></li>
-            <li><a href="pages/teaching.html">Teaching</a></li>
-            <li><a href="pages/talks.html">Talks</a></li>
-            <li><a href="pages/resources.html">Resources</a></li>
-            <li><a href="files/CV.pdf">CV</a></li>
-        </ul>
-        <button id="theme-toggle" class="theme-toggle">🌙</button>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="hero">
-        <div class="hero-content">
-            <h1>Dimitrios Tsintsilidas</h1>
-            <p>PhD Student · University of Warwick</p>
-        </div>
-    </header>
-
-    <!-- About Section -->
-    <section class="about">
-        <img src="images/profile.jpg" alt="Dimitrios Tsintsilidas" class="profile-photo">
-        <div class="about-text">
-            <h2>About Me</h2>
-            <p>Hi, my name is <strong>Dimitrios Tsintsilidas</strong>!</p>
-            
-            <p>I am a first-year PhD student at the Computer Science Department of the University of Warwick. I am a member of the Theory and Foundations <a href="https://warwick.ac.uk/fac/sci/dcs/research/focs/" target="_blank">(FoCS)</a> group and the Centre for Discrete Mathematics and its Applications <a href="https://warwick.ac.uk/fac/cross_fac/dimap/" target="_blank">(DIMAP)</a>. I am fortunate to be advised by <a href="https://www.dcs.warwick.ac.uk/~igorcarb/" target="_blank">Igor Carboni Oliveira</a> and <a href="https://www.dcs.warwick.ac.uk/~u2270030/" target="_blank">Christian Ikenmeyer</a>. My research is supported by the <a href="https://warwick.ac.uk/services/dc/schols_fund/scholarships_and_funding/cis/" target="_blank">Chancellors' International Scholarship</a>.</p>
-            
-            <p>Previously, I was a Master's student at the Department of Mathematics of the Aristotle University of Thessaloniki, where I studied Pure Mathematics. My specialisation was in Algebra and Logic and I was advised by <a href="https://sites.google.com/view/chrysostomos-psaroudakis/home" target="_blank">Chrysostomos Psaroudakis</a>. I received my undergraduate degree (Diploma) in the Department of Electrical and Computer Engineering of the same university. I pursued my Diploma Thesis on Quantum Cryptography in Laboratoire d'Informatique de Paris 6 (LIP6) of the CNRS and Sorbonne University, where I was supervised by <a href="https://abgrilo.github.io/" target="_blank">Alex Bredariol Grilo</a>.</p>
-        </div>
-    </section>
-
-    <!-- Research Interests Section -->
-    <section class="interests">
-        <h2>Research Interests</h2>
-        <div class="about-text" style="max-width: 800px; margin: 0 auto; text-align: left;">
-            <p>My research is primarily focused on computational complexity theory and its connections with algebra and logic. Specifically in algebra, I investigate the use of representation theory for proving lower bounds in algebraic/geometric complexity theory, and regarding logic, I am interested in formalising complexity theory in bounded arithmetic, as well as proving independence results.</p>
-        </div>
-        
-        <div class="cards">
-            <div class="card">
-                <h3>📚 Publications</h3>
-                <p>Computational Complexity Theory</p>
-                <a href="pages/publications.html" class="btn">Explore</a>
+<body>
+    <!-- Animated Background Canvas -->
+    <canvas id="matrixCanvas"></canvas>
+    
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header with Navigation -->
+        <header class="main-header">
+            <div class="logo">
+                <span class="bracket">{</span>
+                <span>DT</span>
+                <span class="bracket">}</span>
             </div>
-            <div class="card">
-                <h3>🎓 Teaching</h3>
-                <p>Proof Complexity</p>
-                <a href="pages/teaching.html" class="btn">Learn More</a>
-            </div>
-            <div class="card">
-                <h3>📝 Talks</h3>
-                <p>Talks & Research Seminars</p>
-                <a href="pages/talks.html" class="btn">View</a>
-            </div>
-        </div>
-    </section>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="pages/publications.html" class="nav-link">Research</a></li>
+                    <li><a href="pages/teaching.html" class="nav-link">Teaching</a></li>
+                    <li><a href="files/CV.pdf" class="nav-link">CV</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <p>© 2023 Dimitrios Tsintsilidas</p>
-            <div class="social-links">
-                <a href="https://linkedin.com/in/yourprofile" aria-label="LinkedIn">🔗</a>
-                <a href="https://github.com/yourusername" aria-label="GitHub">🐙</a>
-                <a href="https://scholar.google.com/citations?user=yourid" aria-label="Google Scholar">📚</a>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="title">
+                    <span class="symbol">∀</span>
+                    <span>Dimitrios Tsintsilidas</span>
+                    <span class="symbol">∃</span>
+                </h1>
+                <h2 class="subtitle">
+                    <span class="typed-text" data-strings='[
+                        "Computational Complexity", 
+                        "Algebraic Structures",
+                        "Proof Complexity",
+                        "Bounded Arithmetic"
+                    ]'></span>
+                    <span class="cursor">|</span>
+                </h2>
+                <div class="hero-buttons">
+                    <a href="#research" class="btn btn-primary">Explore Research</a>
+                    <a href="pages/publications.html" class="btn btn-secondary">View Publications</a>
+                </div>
             </div>
-            <p>📧 <a href="mailto:jim.jt99@outlook.com">jim.jt99@outlook.com</a></p>
-        </div>
-    </footer>
+        </section>
 
-    <script src="js/theme-toggle.js"></script>
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="section-header">
+                <h2>About</h2>
+                <div class="decorator">
+                    <span class="math-symbol">∈</span>
+                </div>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I am a PhD student at the University of Warwick, working at the intersection of <strong>computational complexity theory</strong> and <strong>algebraic structures</strong>. My research explores how mathematical logic and abstract algebra can provide new insights into fundamental questions about computation.</p>
+                    
+                    <p>At Warwick, I'm part of the <a href="https://warwick.ac.uk/fac/sci/dcs/research/focs/" class="highlight-link">Theory and Foundations (FoCS)</a> group and the <a href="https://warwick.ac.uk/fac/cross_fac/dimap/" class="highlight-link">Centre for Discrete Mathematics and its Applications (DIMAP)</a>, advised by <a href="https://www.dcs.warwick.ac.uk/~igorcarb/" class="highlight-link">Igor Carboni Oliveira</a> and <a href="https://www.dcs.warwick.ac.uk/~u2270030/" class="highlight-link">Christian Ikenmeyer</a>.</p>
+                    
+                    <div class="math-expression">
+                        P ≟ NP ∧ ∀x ∈ ℕ ∃y ∈ ℕ → φ(x,y)
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="profile-container">
+                        <img src="images/profile.jpg" alt="Dimitrios Tsintsilidas" class="profile-image">
+                        <div class="profile-overlay"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Section -->
+        <section id="research" class="section dark-section">
+            <div class="section-header">
+                <h2>Research Areas</h2>
+                <div class="decorator">
+                    <span class="math-symbol">⊆</span>
+                </div>
+            </div>
+            <div class="research-grid">
+                <div class="research-card">
+                    <div class="card-icon">P</div>
+                    <h3>Complexity Classes</h3>
+                    <p>Exploring relationships between complexity classes and their algebraic foundations.</p>
+                    <div class="card-footer">NP ≟ coNP</div>
+                </div>
+                <div class="research-card">
+                    <div class="card-icon">∀</div>
+                    <h3>Proof Complexity</h3>
+                    <p>Investigating the strength of proof systems through algebraic and geometric methods.</p>
+                    <div class="card-footer">Frege ⊊ Extended Frege</div>
+                </div>
+                <div class="research-card">
+                    <div class="card-icon">∃</div>
+                    <h3>Bounded Arithmetic</h3>
+                    <p>Formalizing complexity theory in weak arithmetic systems.</p>
+                    <div class="card-footer">S₁² ≡ PV</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="contact" class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <div class="social-links">
+                        <a href="mailto:jim.jt99@outlook.com" class="social-link">Email</a>
+                        <a href="https://github.com/yourusername" class="social-link">GitHub</a>
+                        <a href="https://scholar.google.com/citations?user=yourid" class="social-link">Scholar</a>
+                        <a href="https://linkedin.com/in/yourprofile" class="social-link">LinkedIn</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Affiliations</h3>
+                    <div class="affiliations">
+                        <a href="https://warwick.ac.uk" class="affiliate-link">University of Warwick</a>
+                        <a href="https://warwick.ac.uk/fac/sci/dcs/research/focs/" class="affiliate-link">FoCS Group</a>
+                        <a href="https://warwick.ac.uk/fac/cross_fac/dimap/" class="affiliate-link">DIMAP</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2023 Dimitrios Tsintsilidas | P ≟ NP</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/matrix.js"></script>
+    <script src="js/typing.js"></script>
 </body>
 </html>
