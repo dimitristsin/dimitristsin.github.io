@@ -1,50 +1,51 @@
-body {
-  background-color: yellow !important;
-}
+/* === Custom Styles for Dimitrios' Homepage === */
 
-.hero-gradient {
-  background: linear-gradient(135deg, #1b2a49, #2f3e70, #5a4fa0);
-  color: white;
-}
-
-.fancy-card {
-  background: rgba(255, 255, 255, 0.9);
-  flex: 1;
-  min-width: 250px;
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  text-align: center;
-}
-
-.fancy-card h3 {
-  margin-top: 0;
-  color: #1b2a49;
-}
-
-.fancy-card .btn {
-  margin-top: 1rem;
-}
-
-/* Keep your preferred fonts */
+/* Font settings */
 body {
   font-family: 'Lato', sans-serif;
 }
-
-h1, h2, h3 {
+h1, h2, h3, h4, h5 {
   font-family: 'Merriweather', serif;
 }
 
-/* Footer styling */
-.page__footer {
-  background-color: #1b2a49;
-  color: white;
+/* Warwick blue accents */
+:root {
+  --warwick-blue: #0055a2;
+  --warwick-blue-dark: #004080; /* precomputed darker shade */
 }
 
-.page__footer a {
-  color: #cce0ff;
+a,
+a:visited {
+  color: var(--warwick-blue);
 }
 
-.page__footer a:hover {
-  color: white;
+a:hover {
+  color: var(--warwick-blue-dark);
+  text-decoration: underline;
+}
+
+/* Buttons */
+.btn, .page__content .btn {
+  background-color: var(--warwick-blue);
+  color: #fff !important;
+  border-radius: 6px;
+  padding: 0.5em 1.2em;
+  font-weight: 600;
+}
+
+.btn:hover {
+  background-color: var(--warwick-blue-dark);
+}
+
+/* Splash header spacing */
+.splash .page__header {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+/* Section dividers */
+.page__content h2 {
+  border-bottom: 2px solid var(--warwick-blue);
+  padding-bottom: 0.3rem;
+  margin-top: 2rem;
 }
