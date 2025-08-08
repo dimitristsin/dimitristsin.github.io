@@ -1,12 +1,30 @@
 ---
 permalink: /
 title: "About"
-author_profile: true
+layout: splash
+author_profile: false
+header:
+  overlay_color: "#f8f9fa"
+  overlay_filter: "0"
+  actions:
+    - label: "📄 CV"
+      url: "/files/CV.pdf"
+    - label: "📚 Publications"
+      url: "/publications/"
+    - label: "✉ Contact"
+      url: "mailto:jim.jt99@outlook.com"
+excerpt: "First-year PhD student in Computer Science at the University of Warwick"
+intro: 
+  - excerpt: "**Research Interests:** Computational Complexity • Algebra • Logic"
 redirect_from: 
   - /about/
   - /about.html
 ---
 
+# Dimitrios Tsintsilidas  
+*PhD Student · University of Warwick*
+
+---
 Hi, my name is Dimitrios Tsintsilidas! 
 
 I am a first year PhD student at the Computer Science Department of the University of Warwick. I am a member of the Theory and Foundations [(FoCS)](https://warwick.ac.uk/fac/sci/dcs/research/focs/) group and the Centre for Discrete Mathematics and its Applications [(DIMAP)](https://warwick.ac.uk/fac/cross_fac/dimap/). I am fortunate to be advised by [Igor Carboni Oliveira](https://www.dcs.warwick.ac.uk/~igorcarb/) and [Christian Ikenmeyer](https://www.dcs.warwick.ac.uk/~u2270030/). My research is supported by the [Chancellors' International Scholarship](https://warwick.ac.uk/services/dc/schols_fund/scholarships_and_funding/cis/).
