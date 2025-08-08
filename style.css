@@ -319,3 +319,239 @@ h1, h2, h3 {
         padding: 1.5rem;
     }
 }
+
+/* Modern Color Scheme with Computational Theme */
+:root {
+    --primary: #2c3e50;       /* Dark blue - like P complexity */
+    --secondary: #e74c3c;     /* Red - like NP completeness */
+    --tertiary: #3498db;      /* Blue - like polynomial reduction */
+    --light: #ecf0f1;
+    --dark: #1a252f;
+    --text: #2c3e50;
+    --bg: #f9f9f9;
+    --proof: #27ae60;         /* Green - like verification */
+    --counter: #e67e22;       /* Orange - like counterexamples */
+}
+
+/* Complexity Theory Inspired Dark Mode */
+.dark-mode {
+    --primary: #3498db;       /* P becomes blue */
+    --secondary: #e74c3c;     /* NP remains red */
+    --text: #ecf0f1;
+    --bg: #1a252f;
+    --proof: #2ecc71;
+    --counter: #f39c12;
+}
+
+/* Base Styles with Computational Font */
+body {
+    font-family: 'Lato', 'Fira Code', sans-serif;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--bg);
+    margin: 0;
+    padding: 0;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Merriweather', 'Courier New', serif;
+    color: var(--primary);
+}
+
+/* Complexity Theory Header */
+.main-header {
+    background: var(--primary);
+    color: white;
+    padding: 1.5rem 2rem;
+    position: relative;
+    border-bottom: 3px solid var(--secondary); /* NP-complete border */
+}
+
+.header-content h1 {
+    position: relative;
+    display: inline-block;
+}
+
+.header-content h1::after {
+    content: '∈ P'; /* Complexity class notation */
+    font-family: 'Fira Code', monospace;
+    font-size: 0.6em;
+    position: absolute;
+    right: -2.5em;
+    top: 0;
+    color: var(--proof);
+}
+
+/* Navigation with Complexity Classes */
+.main-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.main-nav::before {
+    content: 'NP ⊆';
+    font-family: 'Fira Code', monospace;
+    position: absolute;
+    left: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--secondary);
+    opacity: 0.7;
+}
+
+.nav-link {
+    position: relative;
+    padding: 0.5rem 1rem;
+}
+
+.nav-link::before {
+    content: '⟨';
+    font-family: 'Fira Code', monospace;
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.nav-link::after {
+    content: '⟩';
+    font-family: 'Fira Code', monospace;
+    position: absolute;
+    right: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.nav-link:hover::before,
+.nav-link:hover::after {
+    opacity: 1;
+}
+
+/* Proof-like Cards */
+.interest-card, .publication-item, .teaching-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.interest-card::before, 
+.publication-item::before,
+.teaching-item::before {
+    content: 'Proof:';
+    font-family: 'Fira Code', monospace;
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    font-size: 0.7rem;
+    color: var(--proof);
+    opacity: 0.5;
+}
+
+/* Complexity Theory Progress Bars */
+.publication-category h3::after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 0;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    margin-top: 0.5rem;
+    transition: width 1s ease;
+}
+
+.publication-category:hover h3::after {
+    width: 100%;
+}
+
+/* Modal with Proof-like Structure */
+.modal-content {
+    border-left: 5px solid var(--proof);
+    counter-reset: theorem;
+}
+
+.modal-content h3::before {
+    counter-increment: theorem;
+    content: 'Theorem ' counter(theorem) ': ';
+    color: var(--proof);
+    font-family: 'Fira Code', monospace;
+}
+
+/* Complexity Theory Footer */
+.main-footer {
+    position: relative;
+}
+
+.main-footer::before {
+    content: 'P ≟ NP';
+    font-family: 'Fira Code', monospace;
+    position: absolute;
+    left: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--secondary);
+    opacity: 0.7;
+}
+
+/* Special Publication Links */
+.pub-link[data-pdf]::before {
+    content: '📄 ';
+}
+
+.pub-link[data-abstract]::before {
+    content: '📝 ';
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .main-nav::before,
+    .main-footer::before {
+        display: none;
+    }
+    
+    .header-content h1::after {
+        position: static;
+        display: block;
+        margin-top: 0.5rem;
+    }
+}
+
+/* Complexity Theory Background Pattern */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.dark-mode body::after {
+    background-image: 
+        linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px);
+}
+
+/* Turing Machine Tape Effect */
+.main-header::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--primary),
+        var(--primary) 20px,
+        var(--secondary) 20px,
+        var(--secondary) 40px
+    );
+}
