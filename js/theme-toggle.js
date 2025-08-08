@@ -1,14 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
     const themeToggle = document.getElementById('theme-toggle');
-    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
     
-    // Check for saved theme preference or use system preference
-    const currentTheme = localStorage.getItem('theme') || 
-                        (prefersDarkScheme.matches ? 'dark' : 'light');
-    document.body.classList.add(currentTheme + '-mode');
-    
-    // Set initial button text
-    themeToggle.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+    // Set default to light mode
+    document.body.classList.add('light-mode');
+    localStorage.setItem('theme', 'light');
+    themeToggle.textContent = '🌙';
     
     // Toggle theme on button click
     themeToggle.addEventListener('click', function() {
@@ -20,4 +16,12 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('theme', newTheme);
         themeToggle.textContent = isDark ? '🌙' : '☀️';
     });
+    
+    // Check for saved preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        document.body.classList.remove('light-mode');
+        themeToggle.textContent = '☀️';
+    }
 });
