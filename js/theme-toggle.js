@@ -1,11 +1,20 @@
 document.addEventListener('DOMContentLoaded', function() {
     const themeBtn = document.getElementById('theme-toggle');
     
-    // Set initial theme
-    if (localStorage.getItem('theme') === 'dark') {
-        document.body.classList.add('dark-mode');
-        themeBtn.textContent = '☀️';
+    // Set initial theme from localStorage or prefer-color-scheme
+    function setInitialTheme() {
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            document.body.classList.add('dark-mode');
+            themeBtn.textContent = '☀️';
+        } else {
+            themeBtn.textContent = '🌙';
+        }
     }
+    
+    setInitialTheme();
     
     // Toggle theme
     themeBtn.addEventListener('click', function() {
