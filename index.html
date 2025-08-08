@@ -9,7 +9,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="light-mode">
+
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" class="theme-toggle">🌓</button>
 
     <!-- Hero Section -->
     <header class="hero">
@@ -18,8 +21,8 @@
             <p>PhD Student · University of Warwick</p>
             <div class="hero-buttons">
                 <a href="files/CV.pdf" class="btn">📄 CV</a>
-                <a href="publications.html" class="btn">📚 Publications</a>
-                <a href="contact.html" class="btn">✉ Contact</a>
+                <a href="pages/publications.html" class="btn">📚 Publications</a>
+                <a href="pages/contact.html" class="btn">✉ Contact</a>
             </div>
         </div>
         <div class="hero-accent"></div>
@@ -42,17 +45,17 @@
             <div class="card">
                 <h3>📚 Publications</h3>
                 <p>Computational Complexity Theory</p>
-                <a href="publications.html" class="btn">Explore</a>
+                <a href="pages/publications.html" class="btn">Explore</a>
             </div>
             <div class="card">
                 <h3>🎓 Teaching</h3>
                 <p>Proof Complexity</p>
-                <a href="teaching.html" class="btn">Learn More</a>
+                <a href="pages/teaching.html" class="btn">Learn More</a>
             </div>
             <div class="card">
                 <h3>📝 Talks</h3>
                 <p>Talks & Research Seminars</p>
-                <a href="talks.html" class="btn">View</a>
+                <a href="pages/talks.html" class="btn">View</a>
             </div>
         </div>
     </section>
@@ -70,5 +73,6 @@
         </div>
     </footer>
 
+    <script src="js/theme-toggle.js"></script>
 </body>
 </html>
