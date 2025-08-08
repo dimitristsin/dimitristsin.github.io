@@ -4,12 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Publications | Dimitrios Tsintsilidas</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../style.css" />
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&display=swap" as="style">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="light-mode">
+
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" class="theme-toggle">🌓</button>
 
     <!-- Hero Section -->
     <header class="hero">
@@ -17,8 +20,8 @@
             <h1>Publications</h1>
             <p>Research papers and academic works</p>
             <div class="hero-buttons">
-                <a href="index.html" class="btn">🏠 Home</a>
-                <a href="files/CV.pdf" class="btn">📄 CV</a>
+                <a href="../index.html" class="btn">🏠 Home</a>
+                <a href="../files/CV.pdf" class="btn">📄 CV</a>
             </div>
         </div>
         <div class="hero-accent"></div>
@@ -32,7 +35,7 @@
                 <div class="publication-title">Provability of the Circuit Size Hierarchy and Its Consequences</div>
                 <div class="publication-authors">Joint work with Marco Carmosino, Valentine Kabanets, Antonina Kolokolova and Igor C. Oliveira</div>
                 <div class="publication-links">
-                    <a href="https://dimitristsin.github.io/files/Circuit_Size_Hierarchy_Bounded_Arithmetic.pdf">PDF</a>
+                    <a href="../files/Circuit_Size_Hierarchy_Bounded_Arithmetic.pdf">PDF</a>
                     <a href="#">arXiv</a>
                 </div>
             </div>
@@ -44,14 +47,14 @@
                 <div class="publication-title">Certifiable Random Number Generation Using Nonlocal Games</div>
                 <div class="publication-authors">Diploma Thesis, supervised by Alex Bredariol Grilo</div>
                 <div class="publication-links">
-                    <a href="https://dimitristsin.github.io/files/thesis.pdf">PDF</a>
+                    <a href="../files/thesis.pdf">PDF</a>
                 </div>
             </div>
             <div class="publication-item">
                 <div class="publication-title">Sheaves on Topological Spaces, Sites and Group Categories</div>
                 <div class="publication-authors">Master's Thesis, supervised by Chrysostomos Psaroudakis</div>
                 <div class="publication-links">
-                    <a href="https://dimitristsin.github.io/files/thesis_math.pdf">PDF</a>
+                    <a href="../files/thesis_math.pdf">PDF</a>
                 </div>
             </div>
         </section>
@@ -61,13 +64,13 @@
             <div class="publication-item">
                 <div class="publication-title">Methods of Witnessing in Bounded Arithmetic</div>
                 <div class="publication-links">
-                    <a href="https://dimitristsin.github.io/files/witnessing_theorems.pdf">PDF</a>
+                    <a href="../files/witnessing_theorems.pdf">PDF</a>
                 </div>
             </div>
             <div class="publication-item">
                 <div class="publication-title">Fundamental Group and Universal Covering of Lie Groups</div>
                 <div class="publication-links">
-                    <a href="https://dimitristsin.github.io/files/fundamental_group.pdf">PDF</a>
+                    <a href="../files/fundamental_group.pdf">PDF</a>
                 </div>
             </div>
         </section>
@@ -86,5 +89,6 @@
         </div>
     </footer>
 
+    <script src="../js/theme-toggle.js"></script>
 </body>
 </html>
