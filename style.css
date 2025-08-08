@@ -2,47 +2,91 @@
 body {
     font-family: 'Lato', sans-serif;
     margin: 0;
-    background: linear-gradient(180deg, #f4f5f7 0%, #f0f4f9 60%, #e6ecf3 100%);
     color: #333;
     line-height: 1.6;
     min-height: 100vh;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 h1, h2, h3 {
     font-family: 'Merriweather', serif;
 }
 
-/* Animations */
-@keyframes heroGradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+/* Light Mode */
+body.light-mode {
+    background: linear-gradient(180deg, #f4f5f7 0%, #f0f4f9 60%, #e6ecf3 100%);
+    color: #333;
 }
-@keyframes fadeInUp {
-    0% { opacity: 0; transform: translateY(20px); }
-    100% { opacity: 1; transform: translateY(0); }
+.light-mode .card,
+.light-mode .about,
+.light-mode .publications {
+    background-color: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+.light-mode .publication-title {
+    color: #1b2a49;
+}
+.light-mode .publication-authors {
+    color: #555;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background: #121212;
+    color: #f0f0f0;
+}
+.dark-mode .card,
+.dark-mode .about,
+.dark-mode .publications {
+    background-color: rgba(30, 30, 30, 0.92);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.dark-mode .publication-title {
+    color: #8ab4f8;
+}
+.dark-mode .publication-authors {
+    color: #aaa;
+}
+.dark-mode .card h3 {
+    color: #8ab4f8;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(255,255,255,0.2);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 100;
+    transition: all 0.3s ease;
+}
+.theme-toggle:hover {
+    background: rgba(255,255,255,0.3);
+    transform: scale(1.1);
 }
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(270deg, #1b2a49, #2f3e70, #5a4fa0, #2f3e70, #1b2a49);
-    background-size: 1000% 1000%;
-    animation: heroGradient 20s ease infinite;
+    background: #1b2a49;
     color: white;
     text-align: center;
     padding: 3rem 1rem;
-    border-radius: 0 0 12px 12px;
     position: relative;
     overflow: hidden;
 }
 .hero-content {
-    animation: fadeInUp 1s ease-out forwards;
+    opacity: 1;
 }
 .hero h1 {
     margin-bottom: 0.5rem;
 }
 .hero-buttons {
     margin-top: 1.5rem;
-    animation: fadeInUp 1.5s ease-out forwards;
 }
 .hero-accent {
     position: absolute;
@@ -65,29 +109,16 @@ h1, h2, h3 {
     display: inline-block;
     font-weight: bold;
     transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
 }
 .btn:hover {
     background-color: #0052a3;
     transform: translateY(-2px);
 }
-.btn:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: left 0.7s;
+.dark-mode .btn {
+    background-color: #4a89dc;
 }
-.btn:hover:after {
-    left: 100%;
-}
-.btn:focus {
-    outline: 2px solid #ffbf47;
-    outline-offset: 2px;
+.dark-mode .btn:hover {
+    background-color: #3a70c2;
 }
 
 /* About Section */
@@ -96,12 +127,10 @@ h1, h2, h3 {
     flex-wrap: wrap;
     gap: 20px;
     padding: 2rem;
-    background-color: rgba(255, 255, 255, 0.92);
     border-radius: 12px;
     max-width: 1100px;
     margin: 2rem auto;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    animation: fadeInUp 1s ease-out forwards;
+    animation: none;
     align-items: center;
 }
 .profile-photo {
@@ -116,48 +145,13 @@ h1, h2, h3 {
     flex: 2;
 }
 
-/* Publications Section */
-.publications {
-    max-width: 1100px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background-color: rgba(255, 255, 255, 0.92);
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    animation: fadeInUp 1s ease-out forwards;
-}
-.publication-item {
-    margin-bottom: 1.5rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid #eee;
-}
-.publication-item:last-child {
-    border-bottom: none;
-}
-.publication-title {
-    font-weight: bold;
-    color: #1b2a49;
-}
-.publication-authors {
-    color: #555;
-    font-style: italic;
-}
-.publication-links a {
-    color: #0066cc;
-    text-decoration: none;
-    margin-right: 1rem;
-}
-.publication-links a:hover {
-    text-decoration: underline;
-}
-
 /* Cards Section */
 .interests {
     max-width: 1100px;
     margin: 0 auto;
     padding: 2rem;
     text-align: center;
-    animation: fadeInUp 1s ease-out forwards;
+    animation: none;
 }
 .cards {
     display: flex;
@@ -166,22 +160,22 @@ h1, h2, h3 {
     margin-top: 1.5rem;
 }
 .card {
-    background: rgba(255, 255, 255, 0.92);
     flex: 1;
     min-width: 250px;
     padding: 1.5rem;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    animation: fadeInUp 1.5s ease-out forwards;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: all 0.3s ease;
     border-left: 4px solid #0066cc;
+    animation: none;
 }
 .card:hover {
-    transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+.dark-mode .card:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 .card h3 {
-    color: #1b2a49;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -193,7 +187,7 @@ footer {
     color: white;
     text-align: center;
     padding: 2rem;
-    animation: fadeInUp 2s ease-out forwards;
+    animation: none;
 }
 .footer-content {
     max-width: 1100px;
@@ -210,33 +204,6 @@ footer {
 }
 .social-links a:hover {
     color: white;
-}
-footer a {
-    color: #cce0ff;
-}
-footer a:hover {
-    color: white;
-}
-
-/* Dark Mode */
-@media (prefers-color-scheme: dark) {
-    body {
-        background: #121212;
-        color: #f0f0f0;
-    }
-    .card, .about, .publications {
-        background-color: rgba(30, 30, 30, 0.92);
-        color: #f0f0f0;
-    }
-    .publication-title {
-        color: #8ab4f8;
-    }
-    .publication-authors {
-        color: #aaa;
-    }
-    .card h3 {
-        color: #8ab4f8;
-    }
 }
 
 /* Responsive */
