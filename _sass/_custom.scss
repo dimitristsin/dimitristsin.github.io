@@ -1,30 +1,46 @@
-/* Background color */
-body {
-  background-color: #f4f5f7;
+.hero-gradient {
+  background: linear-gradient(135deg, #1b2a49, #2f3e70, #5a4fa0);
+  color: white;
 }
 
-.home-card {
-  background: #fff;
+.fancy-card {
+  background: rgba(255, 255, 255, 0.9);
   flex: 1;
   min-width: 250px;
   padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
 }
 
-.home-card h3 {
+.fancy-card h3 {
   margin-top: 0;
-  color: var(--warwick-blue);
+  color: #1b2a49;
 }
 
+.fancy-card .btn {
+  margin-top: 1rem;
+}
+
+/* Keep your preferred fonts */
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Merriweather', serif;
+}
+
+/* Footer styling */
 .page__footer {
-  background-color: #002147;
-  color: #fff;
+  background-color: #1b2a49;
+  color: white;
 }
 
 .page__footer a {
   color: #cce0ff;
 }
+
 .page__footer a:hover {
-  color: #fff;
+  color: white;
 }
