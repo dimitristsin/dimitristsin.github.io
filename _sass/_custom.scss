@@ -11,6 +11,7 @@ h1, h2, h3, h4, h5 {
 /* Warwick blue accents */
 :root {
   --warwick-blue: #0055a2;
+  --warwick-blue-dark: #004080; /* precomputed darker shade */
 }
 
 a,
@@ -19,7 +20,7 @@ a:visited {
 }
 
 a:hover {
-  color: darken(var(--warwick-blue), 10%);
+  color: var(--warwick-blue-dark);
   text-decoration: underline;
 }
 
@@ -33,7 +34,7 @@ a:hover {
 }
 
 .btn:hover {
-  background-color: darken(var(--warwick-blue), 10%);
+  background-color: var(--warwick-blue-dark);
 }
 
 /* Splash header spacing */
