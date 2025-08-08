@@ -250,16 +250,6 @@ h1, h2, h3, h4 {
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
-.interest-card::before {
-    content: 'Proof:';
-    font-family: 'Fira Code', monospace;
-    position: absolute;
-    top: 0.5rem;
-    left: 0.5rem;
-    font-size: 0.7rem;
-    color: var(--proof);
-    opacity: 0.5;
-}
 
 .complexity-class {
     font-family: 'Fira Code', monospace;
@@ -310,17 +300,6 @@ h1, h2, h3, h4 {
 
 .dark-mode .publication-item {
     background: var(--dark);
-}
-
-.publication-item::before {
-    content: 'Theorem:';
-    font-family: 'Fira Code', monospace;
-    position: absolute;
-    top: 0.5rem;
-    left: 0.5rem;
-    font-size: 0.7rem;
-    color: var(--proof);
-    opacity: 0.5;
 }
 
 .pub-title {
