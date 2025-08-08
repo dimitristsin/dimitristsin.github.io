@@ -2,25 +2,43 @@
 body {
     font-family: 'Lato', sans-serif;
     margin: 0;
-    background-color: #f4f5f7;
+    background: linear-gradient(180deg, #f4f5f7 0%, #f0f4f9 60%, #e6ecf3 100%);
     color: #333;
 }
 h1, h2, h3 {
     font-family: 'Merriweather', serif;
 }
 
+/* ===== Animations ===== */
+@keyframes heroGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, #1b2a49, #2f3e70, #5a4fa0);
+    background: linear-gradient(270deg, #1b2a49, #2f3e70, #5a4fa0, #2f3e70, #1b2a49);
+    background-size: 1000% 1000%;
+    animation: heroGradient 20s ease infinite;
     color: white;
     text-align: center;
     padding: 3rem 1rem;
+    border-radius: 0 0 12px 12px;
+}
+.hero-content {
+    animation: fadeInUp 1s ease-out forwards;
 }
 .hero h1 {
     margin-bottom: 0.5rem;
 }
 .hero-buttons {
     margin-top: 1.5rem;
+    animation: fadeInUp 1.5s ease-out forwards;
 }
 .btn {
     background-color: #0055a2;
@@ -31,6 +49,7 @@ h1, h2, h3 {
     margin: 0 0.3rem;
     display: inline-block;
     font-weight: bold;
+    transition: background-color 0.3s ease;
 }
 .btn:hover {
     background-color: #003d78;
@@ -42,10 +61,12 @@ h1, h2, h3 {
     flex-wrap: wrap;
     gap: 20px;
     padding: 2rem;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.92);
     border-radius: 12px;
     max-width: 1100px;
     margin: 2rem auto;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    animation: fadeInUp 1s ease-out forwards;
 }
 .profile-photo {
     flex: 1;
@@ -62,6 +83,7 @@ h1, h2, h3 {
     margin: 0 auto;
     padding: 2rem;
     text-align: center;
+    animation: fadeInUp 1s ease-out forwards;
 }
 .cards {
     display: flex;
@@ -70,12 +92,18 @@ h1, h2, h3 {
     margin-top: 1.5rem;
 }
 .card {
-    background: white;
+    background: rgba(255, 255, 255, 0.92);
     flex: 1;
     min-width: 250px;
     padding: 1.5rem;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    animation: fadeInUp 1.5s ease-out forwards;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 .card h3 {
     color: #1b2a49;
@@ -87,6 +115,7 @@ footer {
     color: white;
     text-align: center;
     padding: 1rem;
+    animation: fadeInUp 2s ease-out forwards;
 }
 footer a {
     color: #cce0ff;
