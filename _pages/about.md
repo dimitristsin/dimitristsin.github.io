@@ -1,54 +1,37 @@
 ---
 permalink: /
 title: "About"
-layout: single
+layout: splash
 author_profile: false
-classes: wide
+header:
+  overlay_color: "#f8f9fa"
+  overlay_filter: "0"
+  actions:
+    - label: "📄 CV"
+      url: "/files/CV.pdf"
+    - label: "📚 Publications"
+      url: "/publications/"
+    - label: "✉ Contact"
+      url: "mailto:jim.jt99@outlook.com"
+excerpt: "First-year PhD student in Computer Science at the University of Warwick"
+intro: 
+  - excerpt: "**Research Interests:** Computational Complexity • Algebra • Logic"
+redirect_from: 
+  - /about/
+  - /about.html
 ---
 
-<!-- Hero Section -->
-<div class="hero-gradient" style="padding: 3rem; text-align: center; border-radius: 12px;">
-  <h1 style="margin-bottom: 0.5rem;">Dimitrios Tsintsilidas</h1>
-  <p style="font-size: 1.2rem;">PhD Student · University of Warwick</p>
-  <div style="margin-top: 1.5rem;">
-    <a href="/files/CV.pdf" class="btn">📄 CV</a>
-    <a href="/publications/" class="btn">📚 Publications</a>
-    <a href="mailto:jim.jt99@outlook.com" class="btn">✉ Contact</a>
-  </div>
-</div>
+# Dimitrios Tsintsilidas  
+*PhD Student · University of Warwick*
 
-<!-- Profile Section -->
-<div style="display: flex; flex-wrap: wrap; gap: 20px; margin-top: 2rem; align-items: center;">
-  <div style="flex: 1; min-width: 250px;">
-    <img src="/images/photo-placeholder.jpg" alt="Your portrait" style="max-width: 100%; border-radius: 12px;">
-  </div>
-  <div style="flex: 2; min-width: 300px;">
-    <p>Hi, I’m <strong>Dimitrios Tsintsilidas</strong>! I’m a first-year PhD student in the Computer Science Department of the University of Warwick, member of the Theory and Foundations (<a href="https://warwick.ac.uk/fac/sci/dcs/research/focs/">FoCS</a>) group and the Centre for Discrete Mathematics and its Applications (<a href="https://warwick.ac.uk/fac/cross_fac/dimap/">DIMAP</a>), advised by <a href="https://www.dcs.warwick.ac.uk/~igorcarb/">Igor Carboni Oliveira</a> and <a href="https://www.dcs.warwick.ac.uk/~u2270030/">Christian Ikenmeyer</a>.</p>
-    <p>Previously, I studied Pure Mathematics (Algebra & Logic) at Aristotle University of Thessaloniki, advised by <a href="https://sites.google.com/view/chrysostomos-psaroudakis/home">Chrysostomos Psaroudakis</a>, and completed my Diploma in Electrical & Computer Engineering with a thesis on Quantum Cryptography at LIP6, CNRS/Sorbonne University, supervised by <a href="https://abgrilo.github.io/">Alex Bredariol Grilo</a>.</p>
-  </div>
-</div>
+---
 
-<!-- Research Interests Cards -->
-<h2 style="margin-top: 2.5rem; text-align: center;">Research Interests</h2>
-<div style="display: flex; flex-wrap: wrap; gap: 20px; margin-top: 1.5rem;">
-  <div class="fancy-card">
-    <h3>📚 Publications</h3>
-    <p>Computational Complexity Theory</p>
-    <a href="/publications/" class="btn">Explore</a>
-  </div>
-  <div class="fancy-card">
-    <h3>🎓 Teaching</h3>
-    <p>Proof Complexity</p>
-    <a href="/teaching/" class="btn">Learn More</a>
-  </div>
-  <div class="fancy-card">
-    <h3>📝 Presentations</h3>
-    <p>Talks & Research Seminars</p>
-    <a href="/talks/" class="btn">View</a>
-  </div>
-</div>
+Hi, my name is **Dimitrios Tsintsilidas**!  
 
-<!-- Contact Footer -->
-<div style="background-color: #1b2a49; color: white; padding: 1rem; text-align: center; border-radius: 6px; margin-top: 2rem;">
-  📧 <a href="mailto:jim.jt99@outlook.com" style="color: #cce0ff; text-decoration: underline;">jim.jt99@outlook.com</a>
-</div>
+I am a first-year PhD student at the Computer Science Department of the University of Warwick. I am a member of the Theory and Foundations [(FoCS)](https://warwick.ac.uk/fac/sci/dcs/research/focs/) group and the Centre for Discrete Mathematics and its Applications [(DIMAP)](https://warwick.ac.uk/fac/cross_fac/dimap/). I am fortunate to be advised by [Igor Carboni Oliveira](https://www.dcs.warwick.ac.uk/~igorcarb/) and [Christian Ikenmeyer](https://www.dcs.warwick.ac.uk/~u2270030/). My research is supported by the [Chancellors' International Scholarship](https://warwick.ac.uk/services/dc/schols_fund/scholarships_and_funding/cis/).
+
+Previously, I was a Master's student at the Department of Mathematics of the Aristotle University of Thessaloniki, where I studied Pure Mathematics. My specialisation was in Algebra and Logic and I was advised by [Chrysostomos Psaroudakis](https://sites.google.com/view/chrysostomos-psaroudakis/home). I received my undergraduate degree (Diploma) in the Department of Electrical and Computer Engineering of the same university. I pursued my Diploma Thesis on Quantum Cryptography in Laboratoire d'Informatique de Paris 6 (LIP6) of the CNRS and Sorbonne University, where I was supervised by [Alex Bredariol Grilo](https://abgrilo.github.io/).
+
+## Research Interests
+
+My research is primarily focused on computational complexity theory and its connections with algebra and logic. Specifically in algebra, I investigate the use of representation theory for proving lower bounds in algebraic/geometric complexity theory, and regarding logic, I am interested in formalising complexity theory in bounded arithmetic, as well as proving independence results.
