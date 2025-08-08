@@ -3,7 +3,20 @@ body {
   background-color: #f4f5f7;
 }
 
-/* Footer color */
+.home-card {
+  background: #fff;
+  flex: 1;
+  min-width: 250px;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.home-card h3 {
+  margin-top: 0;
+  color: var(--warwick-blue);
+}
+
 .page__footer {
   background-color: #002147;
   color: #fff;
@@ -14,13 +27,4 @@ body {
 }
 .page__footer a:hover {
   color: #fff;
-}
-
-/* Make section boxes more defined */
-.home-section {
-  background: #fff;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
