@@ -7,33 +7,27 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body>
-    <!-- Fixed Navigation -->
+<body class="light-mode">
+    <!-- Compact Navigation -->
     <nav class="main-nav">
-        <a href="#about" class="nav-link">About</a>
-        <a href="#research" class="nav-link">Research</a>
-        <a href="#publications" class="nav-link">Publications</a>
-        <a href="#teaching" class="nav-link">Teaching</a>
-        <a href="#contact" class="nav-link">Contact</a>
-        <a href="files/CV.pdf" class="nav-link">CV</a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#teaching">Teaching</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="files/CV.pdf">CV</a></li>
+        </ul>
+        <button id="theme-toggle" class="theme-toggle">🌙</button>
     </nav>
 
-    <!-- Hero Section -->
-    <header id="about" class="section hero-section">
-        <div class="header-content">
-            <h1>Dimitrios Tsintsilidas</h1>
-            <p class="subtitle">PhD Student in Computer Science<br>University of Warwick</p>
-        </div>
-    </header>
-
     <!-- About Section -->
-    <section class="section about-section">
-        <div class="two-column">
-            <div class="profile-container">
-                <img src="images/profile.jpg" alt="Dimitrios Tsintsilidas" class="profile-img">
-            </div>
+    <section id="about" class="section">
+        <div class="about-content">
+            <img src="images/profile.jpg" alt="Dimitrios Tsintsilidas" class="profile-photo">
             <div class="about-text">
-                <h2>About Me</h2>
+                <h1>Dimitrios Tsintsilidas</h1>
+                <p class="subtitle">PhD Student · University of Warwick</p>
                 <p>I am a first-year PhD student at the Computer Science Department of the University of Warwick, member of the Theory and Foundations (FoCS) group and the Centre for Discrete Mathematics and its Applications (DIMAP), advised by Igor Carboni Oliveira and Christian Ikenmeyer.</p>
                 <p>Previously, I studied Pure Mathematics (Algebra & Logic) at Aristotle University of Thessaloniki and completed my Diploma in Electrical & Computer Engineering with a thesis on Quantum Cryptography at LIP6, CNRS/Sorbonne University.</p>
             </div>
@@ -41,18 +35,18 @@
     </section>
 
     <!-- Research Section -->
-    <section id="research" class="section research-section">
+    <section id="research" class="section dark-section">
         <h2>Research Interests</h2>
-        <div class="interests-grid">
-            <div class="interest-card">
+        <div class="cards">
+            <div class="card">
                 <h3>Computational Complexity</h3>
                 <p>Fundamental limits of efficient computation</p>
             </div>
-            <div class="interest-card">
+            <div class="card">
                 <h3>Algebraic Methods</h3>
                 <p>Applications in complexity theory</p>
             </div>
-            <div class="interest-card">
+            <div class="card">
                 <h3>Proof Complexity</h3>
                 <p>Formal proof systems analysis</p>
             </div>
@@ -60,7 +54,7 @@
     </section>
 
     <!-- Publications Section -->
-    <section id="publications" class="section publications-section">
+    <section id="publications" class="section">
         <h2>Publications</h2>
         
         <div class="publication-category">
@@ -69,7 +63,8 @@
                 <div class="pub-title">Provability of the Circuit Size Hierarchy and Its Consequences</div>
                 <div class="pub-authors">joint work with Marco Carmosino, Valentine Kabanets, Antonina Kolokolova and Igor C. Oliveira</div>
                 <div class="pub-links">
-                    <a href="files/Circuit_Size_Hierarchy_Bounded_Arithmetic.pdf" class="pub-link">PDF</a>
+                    <a href="#" class="pub-link" data-pdf="files/Circuit_Size_Hierarchy_Bounded_Arithmetic.pdf">View PDF</a>
+                    <a href="#" class="pub-link" data-abstract="Abstract text goes here...">Abstract</a>
                 </div>
             </div>
         </div>
@@ -80,37 +75,15 @@
                 <div class="pub-title">Certifiable Random Number Generation Using Nonlocal Games</div>
                 <div class="pub-authors">Diploma Thesis, supervised by Alex Bredariol Grilo</div>
                 <div class="pub-links">
-                    <a href="files/thesis.pdf" class="pub-link">PDF</a>
+                    <a href="#" class="pub-link" data-pdf="files/thesis.pdf">View PDF</a>
                 </div>
             </div>
-            <div class="publication-item">
-                <div class="pub-title">Sheaves on Topological Spaces, Sites and Group Categories</div>
-                <div class="pub-authors">Master's Thesis, supervised by Chrysostomos Psaroudakis</div>
-                <div class="pub-links">
-                    <a href="files/thesis_math.pdf" class="pub-link">PDF</a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="publication-category">
-            <h3>Notes</h3>
-            <div class="publication-item">
-                <div class="pub-title">Methods of Witnessing in Bounded Arithmetic</div>
-                <div class="pub-links">
-                    <a href="files/witnessing_theorems.pdf" class="pub-link">PDF</a>
-                </div>
-            </div>
-            <div class="publication-item">
-                <div class="pub-title">Fundamental Group and Universal Covering of Lie Groups</div>
-                <div class="pub-links">
-                    <a href="files/fundamental_group.pdf" class="pub-link">PDF</a>
-                </div>
-            </div>
+            <!-- More publication items -->
         </div>
     </section>
 
     <!-- Teaching Section -->
-    <section id="teaching" class="section teaching-section">
+    <section id="teaching" class="section">
         <h2>Teaching</h2>
         <div class="teaching-item">
             <h3>Course Name</h3>
@@ -120,22 +93,20 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section contact-section">
+    <section id="contact" class="section dark-section">
         <h2>Contact</h2>
         <div class="contact-info">
             <p>Email: <a href="mailto:jim.jt99@outlook.com">jim.jt99@outlook.com</a></p>
-            <p>Department of Computer Science<br>
-            University of Warwick<br>
-            Coventry, UK</p>
+            <p>Department of Computer Science<br>University of Warwick</p>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="main-footer">
+    <footer class="footer">
         <p>© 2023 Dimitrios Tsintsilidas</p>
     </footer>
 
-    <!-- Modal/Popup Container -->
+    <!-- Modal for PDFs and Abstracts -->
     <div id="pub-modal" class="modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
