@@ -42,7 +42,6 @@ function closePubModal() { // Renamed to avoid conflict with window.close()
     modal.style.display = 'none';
     document.body.classList.remove('modal-open');
     // For simplicity, we'll skip focus restoration here, but it's good practice
-    // If you track the element that opened the modal, you would restore focus to it here.
 }
 
 document.querySelectorAll('.pub-link').forEach(link => {
@@ -98,4 +97,16 @@ document.querySelectorAll('.main-nav a[href^="#"]').forEach(anchor => { // Only 
             history.pushState(null, null, targetId);
         }
     });
+});
+
+// Sticky Header Icon-Only Functionality
+const mainHeader = document.querySelector('.main-header');
+const headerHeight = mainHeader.offsetHeight; // Get initial header height
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > headerHeight) { // Adjust 'headerHeight' as needed for when to trigger
+        mainHeader.classList.add('scrolled');
+    } else {
+        mainHeader.classList.remove('scrolled');
+    }
 });
