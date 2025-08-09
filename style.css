@@ -37,39 +37,28 @@ h1, h2, h3 {
     font-family: 'Merriweather', serif;
     color: var(--primary);
 }
+/* ... (previous styles remain the same until navigation section) ... */
 
-/* Header with Collapsible Navigation */
+/* Fixed Navigation with Smooth Transition */
 .main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     background: var(--nav-bg);
     color: white;
     padding: 1rem 2rem;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    z-index: 1000;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
+    transition: padding 0.3s ease;
 }
 
 .header-content {
-    text-align: center;
-    margin-bottom: 1rem;
     transition: all 0.3s ease;
+    height: auto;
+    overflow: hidden;
 }
 
-.main-header h1 {
-    color: white;
-    margin: 0;
-    font-size: 2rem;
-    transition: all 0.3s ease;
-}
-
-.subtitle {
-    color: rgba(255,255,255,0.8);
-    margin: 0.5rem 0 0;
-    font-size: 1rem;
-}
-
-/* Navigation with Icons */
 .main-nav {
     display: flex;
     justify-content: center;
@@ -87,30 +76,23 @@ h1, h2, h3 {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .nav-link i {
     font-size: 1.2rem;
+    min-width: 1.2rem;
+    text-align: center;
     transition: all 0.3s ease;
 }
 
-.nav-link span {
+.nav-text {
     transition: all 0.3s ease;
-}
-
-.nav-link:hover {
-    background: rgba(255,255,255,0.1);
-}
-
-.theme-btn {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1.2rem;
-    cursor: pointer;
-    padding: 0 0.5rem;
-    margin-left: 1rem;
+    white-space: nowrap;
+    display: inline-block;
+    max-width: 100px;
+    overflow: hidden;
 }
 
 /* Collapsed Navigation */
@@ -120,24 +102,144 @@ h1, h2, h3 {
 
 .main-header.scrolled .header-content {
     height: 0;
-    overflow: hidden;
-    margin: 0;
-}
-
-.main-header.scrolled .main-nav {
-    gap: 1rem;
-    padding: 0.3rem 0;
-}
-
-.main-header.scrolled .nav-link span {
-    width: 0;
-    overflow: hidden;
     opacity: 0;
+}
+
+.main-header.scrolled .nav-text {
+    max-width: 0;
+    opacity: 0;
+    margin-left: 0;
 }
 
 .main-header.scrolled .nav-link {
     padding: 0.5rem;
 }
+
+/* Talks Section */
+.talks-section {
+    margin: 4rem 0;
+}
+
+.talk-category {
+    margin-bottom: 3rem;
+}
+
+.talk-category h3 {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.talk-item {
+    background: var(--card-bg);
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border-left: 3px solid var(--primary);
+}
+
+.talk-title {
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+}
+
+.talk-meta {
+    color: var(--text);
+    opacity: 0.8;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.talk-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.talk-link {
+    color: var(--secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.talk-link:hover {
+    text-decoration: underline;
+}
+
+.external-link {
+    color: var(--secondary);
+    font-size: 0.8em;
+    margin-left: 0.5rem;
+}
+
+/* Teaching Section */
+.teaching-section {
+    margin: 4rem 0;
+}
+
+.teaching-category {
+    margin-bottom: 3rem;
+}
+
+.teaching-category h3 {
+    border-bottom: 2px solid var(--proof);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.teaching-item {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+.course-title {
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+}
+
+.course-title a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.course-title a:hover {
+    text-decoration: underline;
+}
+
+.course-meta {
+    color: var(--text);
+    opacity: 0.8;
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.course-responsibilities {
+    padding-left: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.course-responsibilities li {
+    margin-bottom: 0.5rem;
+}
+
+/* Adjust content wrapper for fixed header */
+.content-wrapper {
+    padding-top: 180px; /* Adjust based on your header height */
+    transition: padding-top 0.3s ease;
+}
+
+.main-header.scrolled + .content-wrapper {
+    padding-top: 80px; /* Reduced when header is collapsed */
+}
+
+/* ... (rest of the existing styles remain the same) ... */
 
 /* Main Content */
 .content-wrapper {
@@ -297,41 +399,6 @@ h1, h2, h3 {
 .pub-link:hover {
     background: var(--secondary);
     color: white;
-}
-
-/* Teaching Section */
-.teaching-section {
-    margin: 4rem 0;
-}
-
-.teaching-item {
-    background: var(--card-bg);
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-    border-left: 4px solid var(--accent);
-}
-
-.course-meta {
-    color: var(--text);
-    opacity: 0.8;
-    margin-bottom: 1rem;
-}
-
-.course-topics {
-    margin-top: 1rem;
-    padding-left: 1.5rem;
-}
-
-.course-topics li {
-    margin-bottom: 0.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.course-topics i {
-    color: var(--accent);
 }
 
 /* Footer */
