@@ -3,54 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Dimitrios Tsintsilidas is a PhD Student in Computer Science at the University of Warwick, focusing on Computational Complexity, Algebraic Methods, and Proof Complexity.">
-    
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.yourwebsite.com/"> <meta property="og:title" content="Dimitrios Tsintsilidas | University of Warwick">
-    <meta property="og:description" content="Dimitrios Tsintsilidas is a PhD Student in Computer Science at the University of Warwick, focusing on Computational Complexity, Algebraic Methods, and Proof Complexity.">
-    <meta property="og:image" content="https://www.yourwebsite.com/images/profile.jpg"> <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.yourwebsite.com/"> <meta property="twitter:title" content="Dimitrios Tsintsilidas | University of Warwick">
-    <meta property="twitter:description" content="Dimitrios Tsintsilidas is a PhD Student in Computer Science at the University of Warwick, focusing on Computational Complexity, Algebraic Methods, and Proof Complexity.">
-    <meta property="twitter:image" content="https://www.yourwebsite.com/images/profile.jpg"> <title>Dimitrios Tsintsilidas | University of Warwick</title>
+    <title>Dimitrios Tsintsilidas | University of Warwick</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon"> 
 </head>
 <body>
+    <!-- Minimal Header -->
     <header class="main-header">
         <div class="header-content">
             <h1>Dimitrios Tsintsilidas</h1>
             <p class="subtitle">PhD Student · Theory and Foundations · University of Warwick</p>
         </div>
-        <nav class="main-nav" aria-label="Main navigation">
-            <a href="#about" class="nav-link" aria-label="About section"><span class="nav-icon">👤</span><span class="nav-text">About</span></a>
-            <a href="#research" class="nav-link" aria-label="Research section"><span class="nav-icon">🔬</span><span class="nav-text">Research</span></a>
-            <a href="#publications" class="nav-link" aria-label="Publications section"><span class="nav-icon">📚</span><span class="nav-text">Publications</span></a>
-            <a href="#teaching" class="nav-link" aria-label="Teaching section"><span class="nav-icon">🧑‍🏫</span><span class="nav-text">Teaching</span></a>
-            <a href="files/CV.pdf" class="nav-link" aria-label="Download Curriculum Vitae" download><span class="nav-icon">📄</span><span class="nav-text">CV</span></a>
-            <button id="theme-toggle" class="theme-btn" aria-label="Toggle dark and light theme">🌙</button>
+        <nav class="main-nav">
+            <a href="#about" class="nav-link">About</a>
+            <a href="#research" class="nav-link">Research</a>
+            <a href="#publications" class="nav-link">Publications</a>
+            <a href="#teaching" class="nav-link">Teaching</a>
+            <a href="files/CV.pdf" class="nav-link">CV</a>
+            <button id="theme-toggle" class="theme-btn">🌙</button>
         </nav>
     </header>
 
+    <!-- Main Content -->
     <main class="content-wrapper">
+        <!-- About Section -->
         <section id="about" class="about-section">
             <div class="profile-container">
                 <img src="images/profile.jpg" alt="Dimitrios Tsintsilidas" class="profile-img">
             </div>
             <div class="about-text">
                 <h2>About</h2>
-                <p>Hello! I'm <strong>Dimitrios Tsintsilidas</strong>, a passionate first-year PhD student in Computer Science at the University of Warwick.</p>
-                <p>I'm a proud member of the Theory and Foundations (FoCS) group and the Centre for Discrete Mathematics and its Applications (DIMAP), where I'm advised by Igor Carboni Oliveira and Christian Ikenmeyer. My research journey is generously supported by the Chancellors' International Scholarship.</p>
-                <p>My academic background spans both pure mathematics and engineering. I completed my studies in Pure Mathematics (Algebra & Logic) at Aristotle University of Thessaloniki. Prior to that, I earned my Diploma in Electrical & Computer Engineering, culminating in a thesis on Quantum Cryptography conducted at LIP6, CNRS/Sorbonne University.</p>
-                <h3>What I'm currently exploring:</h3>
-                <ul>
-                    <li>Connections between Proof Complexity and Bounded Arithmetic</li>
-                    <li>Applications of algebraic methods in circuit lower bounds</li>
-                    <li>Quantum information theory and its implications for complexity</li>
-                </ul>
+                <p>Hi, my name is <strong>Dimitrios Tsintsilidas</strong>!</p>
+                <p>I am a first-year PhD student at the Computer Science Department of the University of Warwick, member of the Theory and Foundations (FoCS) group and the Centre for Discrete Mathematics and its Applications (DIMAP), advised by Igor Carboni Oliveira and Christian Ikenmeyer. My research is supported by the Chancellors' International Scholarship.</p>
+                <p>Previously, I studied Pure Mathematics (Algebra & Logic) at Aristotle University of Thessaloniki and completed my Diploma in Electrical & Computer Engineering with a thesis on Quantum Cryptography at LIP6, CNRS/Sorbonne University.</p>
             </div>
         </section>
 
+        <!-- Research Interests -->
         <section id="research" class="research-section">
             <h2>Research Interests</h2>
             <div class="interests-grid">
@@ -69,6 +58,7 @@
             </div>
         </section>
 
+        <!-- Publications Section -->
         <section id="publications" class="publications-section">
             <h2>Publications</h2>
             <div class="publication-category">
@@ -77,8 +67,8 @@
                     <div class="pub-title">Provability of the Circuit Size Hierarchy and Its Consequences</div>
                     <div class="pub-authors">joint work with Marco Carmosino, Valentine Kabanets, Antonina Kolokolova and Igor C. Oliveira</div>
                     <div class="pub-links">
-                        <a href="#" class="pub-link" data-pdf="files/Circuit_Size_Hierarchy_Bounded_Arithmetic.pdf" aria-label="View PDF for Provability of the Circuit Size Hierarchy and Its Consequences">PDF</a>
-                        <a href="#" class="pub-link" data-abstract="This work investigates the provability of circuit size hierarchy theorems in weak theories of bounded arithmetic..." aria-label="View Abstract for Provability of the Circuit Size Hierarchy and Its Consequences">Abstract</a>
+                        <a href="#" class="pub-link" data-pdf="files/Circuit_Size_Hierarchy_Bounded_Arithmetic.pdf">PDF</a>
+                        <a href="#" class="pub-link" data-abstract="This work investigates the provability of circuit size hierarchy theorems in weak theories of bounded arithmetic...">Abstract</a>
                     </div>
                 </div>
             </div>
@@ -89,14 +79,14 @@
                     <div class="pub-title">Certifiable Random Number Generation Using Nonlocal Games</div>
                     <div class="pub-authors">Diploma Thesis, supervised by Alex Bredariol Grilo</div>
                     <div class="pub-links">
-                        <a href="#" class="pub-link" data-pdf="files/thesis.pdf" aria-label="View PDF for Certifiable Random Number Generation Using Nonlocal Games">PDF</a>
+                        <a href="#" class="pub-link" data-pdf="files/thesis.pdf">PDF</a>
                     </div>
                 </div>
                 <div class="publication-item">
                     <div class="pub-title">Sheaves on Topological Spaces, Sites and Group Categories</div>
                     <div class="pub-authors">Master's Thesis, supervised by Chrysostomos Psaroudakis</div>
                     <div class="pub-links">
-                        <a href="#" class="pub-link" data-pdf="files/thesis_math.pdf" aria-label="View PDF for Sheaves on Topological Spaces, Sites and Group Categories">PDF</a>
+                        <a href="#" class="pub-link" data-pdf="files/thesis_math.pdf">PDF</a>
                     </div>
                 </div>
             </div>
@@ -106,46 +96,48 @@
                 <div class="publication-item">
                     <div class="pub-title">Methods of Witnessing in Bounded Arithmetic</div>
                     <div class="pub-links">
-                        <a href="#" class="pub-link" data-pdf="files/witnessing_theorems.pdf" aria-label="View PDF for Methods of Witnessing in Bounded Arithmetic">PDF</a>
+                        <a href="#" class="pub-link" data-pdf="files/witnessing_theorems.pdf">PDF</a>
                     </div>
                 </div>
                 <div class="publication-item">
                     <div class="pub-title">Fundamental Group and Universal Covering of Lie Groups</div>
                     <div class="pub-links">
-                        <a href="#" class="pub-link" data-pdf="files/fundamental_group.pdf" aria-label="View PDF for Fundamental Group and Universal Covering of Lie Groups">PDF</a>
+                        <a href="#" class="pub-link" data-pdf="files/fundamental_group.pdf">PDF</a>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Teaching Section -->
         <section id="teaching" class="teaching-section">
             <h2>Teaching</h2>
             <div class="teaching-item">
-                <h3>Teaching Assistant: Discrete Mathematics (CS133)</h3>
-                <p>University of Warwick, Department of Computer Science, Autumn Term 2023</p>
-                <p><strong>Responsibilities:</strong> Led weekly small-group tutorials (e.g., 20 students), graded homework assignments, held office hours, and assisted students with understanding core concepts in logic, set theory, and graph theory. Provided feedback on problem-solving techniques and prepared supplementary materials for challenging topics.</p>
+                <h3>Course Name</h3>
+                <p>University of Warwick, 2023</p>
+                <p>Description of teaching responsibilities...</p>
             </div>
         </section>
     </main>
 
+    <!-- Clean Footer -->
     <footer class="main-footer">
-        <p>© 2025 Dimitrios Tsintsilidas</p>
+        <p>© 2023 Dimitrios Tsintsilidas</p>
         <div class="footer-links">
-            <a href="mailto:jim.jt99@outlook.com" aria-label="Email Dimitrios Tsintsilidas">Email</a>
-            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" aria-label="Dimitrios Tsintsilidas's GitHub profile">GitHub</a>
-            <a href="https://scholar.google.com/citations?user=yourid" target="_blank" rel="noopener noreferrer" aria-label="Dimitrios Tsintsilidas's Google Scholar profile">Google Scholar</a>
-            <a href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" aria-label="Dimitrios Tsintsilidas's LinkedIn profile">LinkedIn</a>
+            <a href="mailto:jim.jt99@outlook.com">Email</a>
+            <a href="https://github.com/yourusername">GitHub</a>
+            <a href="https://scholar.google.com/citations?user=yourid">Google Scholar</a>
         </div>
     </footer>
 
-    <div id="pub-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <!-- Publication Modal -->
+    <div id="pub-modal" class="modal">
         <div class="modal-content">
-            <span class="close-modal" aria-label="Close modal">&times;</span>
-            <h3 id="modal-title" style="display: none;">Publication Details</h3>
+            <span class="close-modal">&times;</span>
             <div id="modal-body"></div>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="js/theme-toggle.js"></script>
+    <script src="js/publications.js"></script>
 </body>
 </html>
