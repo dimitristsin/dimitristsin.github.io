@@ -8,10 +8,15 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             
+            const publicationItem = this.closest('.publication-item');
+            const title = publicationItem.querySelector('.pub-title').textContent;
+            const authors = publicationItem.querySelector('.pub-authors').textContent;
+            
             if (this.hasAttribute('data-pdf')) {
                 // Show PDF in modal
                 modalBody.innerHTML = `
-                    <h3>${this.closest('.publication-item').querySelector('.pub-title').textContent}</h3>
+                    <h3>${title}</h3>
+                    <p class="modal-authors">${authors}</p>
                     <iframe src="${this.getAttribute('data-pdf')}" 
                             style="width:100%; height:70vh;" 
                             frameborder="0"></iframe>
@@ -19,29 +24,13 @@ document.addEventListener('DOMContentLoaded', function() {
             } else if (this.hasAttribute('data-abstract')) {
                 // Show abstract in modal
                 modalBody.innerHTML = `
-                    <h3>${this.closest('.publication-item').querySelector('.pub-title').textContent}</h3>
-                    <p><em>${this.closest('.publication-item').querySelector('.pub-authors').textContent}</em></p>
+                    <h3>${title}</h3>
+                    <p class="modal-authors">${authors}</p>
                     <div class="abstract-content">
                         <h4>Abstract</h4>
                         <p>${this.getAttribute('data-abstract')}</p>
                     </div>
                 `;
-            } else if (this.hasAttribute('data-bibtex')) {
-                // Show BibTeX in modal
-                modalBody.innerHTML = `
-                    <h3>${this.closest('.publication-item').querySelector('.pub-title').textContent}</h3>
-                    <pre><code>${this.getAttribute('data-bibtex')}</code></pre>
-                    <button class="copy-bibtex">Copy to Clipboard</button>
-                `;
-                
-                // Add copy functionality
-                modal.querySelector('.copy-bibtex').addEventListener('click', function() {
-                    navigator.clipboard.writeText(this.previousElementSibling.textContent);
-                    this.textContent = 'Copied!';
-                    setTimeout(() => {
-                        this.textContent = 'Copy to Clipboard';
-                    }, 2000);
-                });
             }
             
             modal.style.display = 'block';
@@ -57,19 +46,5 @@ document.addEventListener('DOMContentLoaded', function() {
         if (e.target === modal) {
             modal.style.display = 'none';
         }
-    });
-
-    // Smooth scrolling for navigation
-    document.querySelectorAll('.main-nav a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                window.scrollTo({
-                    top: target.offsetTop - 100,
-                    behavior: 'smooth'
-                });
-            }
-        });
     });
 });

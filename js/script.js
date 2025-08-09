@@ -1,14 +1,27 @@
-// Theme Toggle (from previous)
+// Theme Toggle
 document.getElementById('theme-toggle').addEventListener('click', function() {
     document.body.classList.toggle('dark-mode');
-    localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    try {
+        localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    } catch (e) {
+        console.warn("Could not set theme preference in localStorage:", e);
+    }
     this.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    this.setAttribute('aria-label', document.body.classList.contains('dark-mode') ? 'Switch to light mode' : 'Switch to dark mode');
 });
 
 // Check for saved theme preference
-if (localStorage.getItem('theme') === 'dark') {
-    document.body.classList.add('dark-mode');
-    document.getElementById('theme-toggle').textContent = '☀️';
+try {
+    if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+        const themeToggle = document.getElementById('theme-toggle');
+        if (themeToggle) { // Check if element exists before accessing
+            themeToggle.textContent = '☀️';
+            themeToggle.setAttribute('aria-label', 'Switch to light mode');
+        }
+    }
+} catch (e) {
+    console.warn("Could not read theme preference from localStorage:", e);
 }
 
 // Modal functionality for publications
@@ -16,49 +29,84 @@ const modal = document.getElementById('pub-modal');
 const modalBody = document.getElementById('modal-body');
 const closeModal = document.querySelector('.close-modal');
 
+// Function to open modal
+function openModal(contentHtml) {
+    modalBody.innerHTML = contentHtml;
+    modal.style.display = 'block';
+    document.body.classList.add('modal-open'); // To prevent scrolling body
+    closeModal.focus(); // Focus on the close button for accessibility
+}
+
+// Function to close modal
+function closePubModal() { // Renamed to avoid conflict with window.close()
+    modal.style.display = 'none';
+    document.body.classList.remove('modal-open');
+    // For simplicity, we'll skip focus restoration here, but it's good practice
+}
+
 document.querySelectorAll('.pub-link').forEach(link => {
     link.addEventListener('click', function(e) {
         e.preventDefault();
         
+        let content = '';
         if (this.hasAttribute('data-pdf')) {
-            // Show PDF in modal
-            modalBody.innerHTML = `
+            content = `
                 <iframe src="${this.getAttribute('data-pdf')}" 
                         style="width:100%; height:70vh;" 
-                        frameborder="0"></iframe>
+                        frameborder="0" title="Publication PDF Viewer"></iframe>
             `;
         } else if (this.hasAttribute('data-abstract')) {
-            // Show abstract in modal
-            modalBody.innerHTML = `
+            content = `
                 <h3>Abstract</h3>
                 <p>${this.getAttribute('data-abstract')}</p>
             `;
         }
-        
-        modal.style.display = 'block';
+        openModal(content);
     });
 });
 
 // Close modal
-closeModal.addEventListener('click', () => {
-    modal.style.display = 'none';
-});
+closeModal.addEventListener('click', closePubModal);
 
 window.addEventListener('click', (e) => {
     if (e.target === modal) {
-        modal.style.display = 'none';
+        closePubModal();
+    }
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.style.display === 'block') {
+        closePubModal();
     }
 });
 
 // Smooth scrolling for navigation
-document.querySelectorAll('.nav-links a').forEach(anchor => {
+document.querySelectorAll('.main-nav a[href^="#"]').forEach(anchor => { // Only select internal hash links
     anchor.addEventListener('click', function(e) {
-        if (this.getAttribute('href').startsWith('#')) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+
+        if (targetElement) {
+            targetElement.scrollIntoView({
                 behavior: 'smooth',
                 block: 'start'
             });
+            // Update URL hash without jumping
+            history.pushState(null, null, targetId);
         }
     });
+});
+
+// Sticky Header Icon-Only Functionality
+const mainHeader = document.querySelector('.main-header');
+const headerHeight = mainHeader.offsetHeight; // Get initial header height
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > headerHeight) { // Adjust 'headerHeight' as needed for when to trigger
+        mainHeader.classList.add('scrolled');
+    } else {
+        mainHeader.classList.remove('scrolled');
+    }
 });

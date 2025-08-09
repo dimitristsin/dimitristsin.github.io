@@ -1,20 +1,25 @@
-/* Modern Color Scheme */
+/* Vibrant Color Scheme */
 :root {
-    --primary: #2c3e50;
-    --secondary: #3498db;
+    --primary: #2980b9;       /* Deep blue */
+    --secondary: #e74c3c;     /* Vibrant red */
+    --accent: #f39c12;        /* Orange */
+    --proof: #27ae60;         /* Green */
     --light: #ecf0f1;
     --dark: #2c3e50;
     --text: #333;
     --bg: #f9f9f9;
+    --card-bg: #ffffff;
+    --nav-bg: #2c3e50;
 }
 
-/* Dark Mode Colors */
+/* Dark Mode */
 .dark-mode {
     --primary: #3498db;
-    --secondary: #2c3e50;
+    --secondary: #e74c3c;
     --text: #ecf0f1;
     --bg: #2c3e50;
-    --light: #bdc3c7;
+    --card-bg: #34495e;
+    --nav-bg: #1a252f;
 }
 
 /* Base Styles */
@@ -25,89 +30,231 @@ body {
     background: var(--bg);
     margin: 0;
     padding: 0;
-    transition: background 0.3s ease, color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 h1, h2, h3 {
     font-family: 'Merriweather', serif;
     color: var(--primary);
 }
+/* ... (previous styles remain the same until navigation section) ... */
 
-/* Layout */
-.content-wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-}
-
-/* Header */
+/* Fixed Navigation with Smooth Transition */
 .main-header {
-    background: var(--primary);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--nav-bg);
     color: white;
-    padding: 1.5rem 2rem;
-    position: relative;
+    padding: 1rem 2rem;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: padding 0.3s ease;
 }
 
 .header-content {
-    text-align: center;
-    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    height: auto;
+    overflow: hidden;
 }
 
-.main-header h1 {
-    color: white;
-    margin: 0;
-    font-size: 2rem;
-}
-
-.subtitle {
-    color: rgba(255,255,255,0.8);
-    margin: 0.5rem 0 0;
-    font-size: 1rem;
-}
-
-/* Navigation */
 .main-nav {
     display: flex;
     justify-content: center;
     gap: 1.5rem;
-    flex-wrap: wrap;
+    padding: 0.5rem 0;
+    transition: all 0.3s ease;
 }
 
 .nav-link {
     color: white;
     text-decoration: none;
     font-weight: 500;
-    padding: 0.5rem 0;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     position: relative;
-    transition: color 0.3s ease;
+    overflow: hidden;
 }
 
-.nav-link:hover {
-    color: var(--light);
+.nav-link i {
+    font-size: 1.2rem;
+    min-width: 1.2rem;
+    text-align: center;
+    transition: all 0.3s ease;
 }
 
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--light);
-    transition: width 0.3s ease;
-}
-
-.nav-link:hover::after {
-    width: 100%;
+.nav-text {
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    display: inline-block;
+    max-width: 100px;
+    overflow: hidden;
 }
 
 .theme-btn {
     background: none;
     border: none;
-    color: white;
     font-size: 1.2rem;
     cursor: pointer;
     padding: 0 0.5rem;
+    margin-left: 1rem;
+}
+
+/* Collapsed Navigation */
+.main-header.scrolled {
+    padding: 0.5rem 2rem;
+}
+
+.main-header.scrolled .header-content {
+    height: 0;
+    opacity: 0;
+}
+
+.main-header.scrolled .nav-text {
+    max-width: 0;
+    opacity: 0;
+    margin-left: 0;
+}
+
+.main-header.scrolled .nav-link {
+    padding: 0.5rem;
+}
+
+/* Talks Section */
+.talks-section {
+    margin: 4rem 0;
+}
+
+.talk-category {
+    margin-bottom: 3rem;
+}
+
+.talk-category h3 {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.talk-item {
+    background: var(--card-bg);
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border-left: 3px solid var(--primary);
+}
+
+.talk-title {
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+}
+
+.talk-meta {
+    color: var(--text);
+    opacity: 0.8;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.talk-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.talk-link {
+    color: var(--secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.talk-link:hover {
+    text-decoration: underline;
+}
+
+.external-link {
+    color: var(--secondary);
+    font-size: 0.8em;
+    margin-left: 0.5rem;
+}
+
+/* Teaching Section */
+.teaching-section {
+    margin: 4rem 0;
+}
+
+.teaching-category {
+    margin-bottom: 3rem;
+}
+
+.teaching-category h3 {
+    border-bottom: 2px solid var(--proof);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.teaching-item {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+.course-title {
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+}
+
+.course-title a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.course-title a:hover {
+    text-decoration: underline;
+}
+
+.course-meta {
+    color: var(--text);
+    opacity: 0.8;
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.course-responsibilities {
+    padding-left: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.course-responsibilities li {
+    margin-bottom: 0.5rem;
+}
+
+/* Adjust content wrapper for fixed header */
+.content-wrapper {
+    padding-top: 180px; /* Adjust based on your header height */
+    transition: padding-top 0.3s ease;
+}
+
+.main-header.scrolled + .content-wrapper {
+    padding-top: 80px; /* Reduced when header is collapsed */
+}
+
+/* ... (rest of the existing styles remain the same) ... */
+
+/* Main Content */
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
 }
 
 /* About Section */
@@ -121,6 +268,7 @@ h1, h2, h3 {
 .profile-container {
     flex: 1;
     max-width: 300px;
+    position: relative;
 }
 
 .profile-img {
@@ -128,14 +276,38 @@ h1, h2, h3 {
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
+    border: 3px solid var(--primary);
 }
 
 .profile-img:hover {
     transform: translateY(-5px);
 }
 
+.complexity-badge {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background: var(--secondary);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
 .about-text {
     flex: 2;
+}
+
+.research-focus {
+    background: rgba(39, 174, 96, 0.1);
+    border-left: 3px solid var(--proof);
+    padding: 0.8rem;
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 /* Research Section */
@@ -145,27 +317,33 @@ h1, h2, h3 {
 
 .interests-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1.5rem;
     margin-top: 2rem;
 }
 
 .interest-card {
-    background: white;
+    background: var(--card-bg);
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-    border-left: 3px solid var(--secondary);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 4px solid var(--accent);
 }
 
 .dark-mode .interest-card {
-    background: #34495e;
+    background: var(--card-bg);
 }
 
 .interest-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.card-icon {
+    font-size: 2rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
 }
 
 /* Publications Section */
@@ -177,22 +355,28 @@ h1, h2, h3 {
     margin-bottom: 3rem;
 }
 
+.publication-category h3 {
+    position: relative;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--secondary);
+}
+
 .publication-item {
-    background: white;
+    background: var(--card-bg);
     padding: 1.5rem;
     margin: 1.5rem 0;
     border-radius: 8px;
-    border-left: 4px solid var(--secondary);
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-left: 4px solid var(--primary);
 }
 
 .dark-mode .publication-item {
-    background: #34495e;
+    background: var(--card-bg);
 }
 
 .pub-title {
     font-weight: bold;
-    color: var(--secondary);
+    color: var(--primary);
     margin-bottom: 0.5rem;
 }
 
@@ -206,15 +390,19 @@ h1, h2, h3 {
 .pub-links {
     display: flex;
     gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .pub-link {
     color: var(--secondary);
     text-decoration: none;
     padding: 0.3rem 0.8rem;
-    border: 1px solid var(--secondary);
     border-radius: 4px;
     transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    border: 1px solid var(--secondary);
 }
 
 .pub-link:hover {
@@ -222,21 +410,51 @@ h1, h2, h3 {
     color: white;
 }
 
-/* Teaching Section */
-.teaching-section {
-    margin: 4rem 0;
+/* Footer */
+.main-footer {
+    background: var(--nav-bg);
+    color: white;
+    padding: 2rem;
+    margin-top: 3rem;
 }
 
-.teaching-item {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-    border-left: 3px solid var(--secondary);
+.contact-info {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
 }
 
-.dark-mode .teaching-item {
-    background: #34495e;
+.contact-info a {
+    color: white;
+    text-decoration: none;
+}
+
+.contact-info i {
+    margin-right: 0.5rem;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    color: white;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: translateY(-3px);
 }
 
 /* Modal Styles */
@@ -261,6 +479,7 @@ h1, h2, h3 {
     position: relative;
     max-height: 80vh;
     overflow-y: auto;
+    border-left: 5px solid var(--primary);
 }
 
 .close-modal {
@@ -272,27 +491,13 @@ h1, h2, h3 {
     color: var(--text);
 }
 
-/* Footer */
-.main-footer {
-    background: var(--primary);
-    color: white;
-    text-align: center;
-    padding: 1.5rem;
-    margin-top: 3rem;
+#modal-body {
+    padding: 1rem 0;
 }
 
-.footer-links {
-    margin-top: 1rem;
-}
-
-.footer-links a {
-    color: white;
-    margin: 0 1rem;
-    text-decoration: none;
-}
-
-.footer-links a:hover {
-    text-decoration: underline;
+#modal-body h3 {
+    margin-top: 0;
+    color: var(--primary);
 }
 
 /* Responsive Design */
@@ -303,11 +508,12 @@ h1, h2, h3 {
     
     .profile-container {
         max-width: 200px;
-        margin-bottom: 1.5rem;
+        margin: 0 auto 1.5rem;
     }
     
     .main-nav {
         gap: 1rem;
+        flex-wrap: wrap;
     }
     
     .pub-links {
@@ -317,5 +523,13 @@ h1, h2, h3 {
     .modal-content {
         width: 90%;
         padding: 1.5rem;
+    }
+    
+    .interests-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .main-header.scrolled .main-nav {
+        justify-content: space-around;
     }
 }
