@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Header with Fixed Navigation -->
+    <!-- Header -->
     <header class="main-header">
         <div class="header-content">
             <h1>Dimitrios Tsintsilidas</h1>
@@ -48,17 +48,90 @@
     <main class="content-wrapper">
         <!-- About Section -->
         <section id="about" class="about-section">
-            <!-- ... (existing about section content) ... -->
+            <div class="profile-container">
+                <img src="images/profile.jpg" alt="Dimitrios Tsintsilidas" class="profile-img">
+                <div class="complexity-badge">P ⊆ NP</div>
+            </div>
+            <div class="about-text">
+                <h2>About</h2>
+                <p>Hi, my name is <strong>Dimitrios Tsintsilidas</strong>!</p>
+                <p>I am a first-year PhD student at the Computer Science Department of the University of Warwick, member of the Theory and Foundations (FoCS) group and the Centre for Discrete Mathematics and its Applications (DIMAP), advised by Igor Carboni Oliveira and Christian Ikenmeyer. My research is supported by the Chancellors' International Scholarship.</p>
+                <p>Previously, I studied Pure Mathematics (Algebra & Logic) at Aristotle University of Thessaloniki and completed my Diploma in Electrical & Computer Engineering with a thesis on Quantum Cryptography at LIP6, CNRS/Sorbonne University.</p>
+                <div class="research-focus">
+                    <i class="fas fa-brain"></i>
+                    <span>Current Focus: Computational Complexity Theory</span>
+                </div>
+            </div>
         </section>
 
         <!-- Research Interests Section -->
         <section id="research" class="research-section">
-            <!-- ... (existing research section content) ... -->
+            <h2>Research Interests</h2>
+            <div class="interests-grid">
+                <div class="interest-card">
+                    <div class="card-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>Computational Complexity</h3>
+                    <p>Exploring fundamental limits of efficient computation, including the P vs NP problem, circuit complexity, and proof complexity.</p>
+                </div>
+                <div class="interest-card">
+                    <div class="card-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Algebraic Methods</h3>
+                    <p>Applying abstract algebra to complexity theory, particularly in algebraic complexity and geometric complexity theory.</p>
+                </div>
+                <div class="interest-card">
+                    <div class="card-icon">
+                        <i class="fas fa-check-double"></i>
+                    </div>
+                    <h3>Proof Complexity</h3>
+                    <p>Studying formal proof systems and their computational aspects, including propositional proof systems and bounded arithmetic.</p>
+                </div>
+            </div>
         </section>
 
         <!-- Publications Section -->
         <section id="publications" class="publications-section">
-            <!-- ... (existing publications section content) ... -->
+            <h2>Publications</h2>
+            <div class="publication-category">
+                <h3>Preprints</h3>
+                <div class="publication-item">
+                    <div class="pub-title">Provability of the Circuit Size Hierarchy and Its Consequences</div>
+                    <div class="pub-authors">joint work with Marco Carmosino, Valentine Kabanets, Antonina Kolokolova and Igor C. Oliveira</div>
+                    <div class="pub-links">
+                        <a href="#" class="pub-link" data-pdf="files/Circuit_Size_Hierarchy_Bounded_Arithmetic.pdf">
+                            <i class="fas fa-file-pdf"></i> PDF
+                        </a>
+                        <a href="#" class="pub-link" data-abstract="This work investigates the provability of circuit size hierarchy theorems in weak theories of bounded arithmetic...">
+                            <i class="fas fa-scroll"></i> Abstract
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="publication-category">
+                <h3>Thesis</h3>
+                <div class="publication-item">
+                    <div class="pub-title">Certifiable Random Number Generation Using Nonlocal Games</div>
+                    <div class="pub-authors">Diploma Thesis, supervised by Alex Bredariol Grilo</div>
+                    <div class="pub-links">
+                        <a href="#" class="pub-link" data-pdf="files/thesis.pdf">
+                            <i class="fas fa-file-pdf"></i> PDF
+                        </a>
+                    </div>
+                </div>
+                <div class="publication-item">
+                    <div class="pub-title">Sheaves on Topological Spaces, Sites and Group Categories</div>
+                    <div class="pub-authors">Master's Thesis, supervised by Chrysostomos Psaroudakis</div>
+                    <div class="pub-links">
+                        <a href="#" class="pub-link" data-pdf="files/thesis_math.pdf">
+                            <i class="fas fa-file-pdf"></i> PDF
+                        </a>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- Talks Section -->
@@ -186,12 +259,27 @@
 
     <!-- Footer -->
     <footer class="main-footer">
-        <!-- ... (existing footer content) ... -->
+        <div class="contact-info">
+            <h3>Contact</h3>
+            <p><i class="fas fa-envelope"></i> <a href="mailto:jim.jt99@outlook.com">jim.jt99@outlook.com</a></p>
+            <p><i class="fas fa-map-marker-alt"></i> Department of Computer Science, University of Warwick</p>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2023 Dimitrios Tsintsilidas</p>
+            <div class="social-links">
+                <a href="https://github.com/yourusername"><i class="fab fa-github"></i></a>
+                <a href="https://scholar.google.com/citations?user=yourid"><i class="fas fa-graduation-cap"></i></a>
+                <a href="https://linkedin.com/in/yourprofile"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
     </footer>
 
     <!-- Publication Modal -->
     <div id="pub-modal" class="modal">
-        <!-- ... (existing modal content) ... -->
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modal-body"></div>
+        </div>
     </div>
 
     <script src="js/theme-toggle.js"></script>
