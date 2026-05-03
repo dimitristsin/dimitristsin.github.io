@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dimitrios Tsintsilidas Webpage</title>
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="style.css">
+
+<!-- MathJax for LaTeX support -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<!-- Icon Libraries for Email, Scholar, and ORCID -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+</head>
+<body>
+
+    <!-- Main Page Title (Top Left) -->
+    <h1 class="main-title">Dimitrios Tsintsilidas</h1>
+
+    <!-- The Animated Background Canvas -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Radial Navigation -->
+    <div class="radial-nav-container">
+        <div class="orbit-path"></div>
+        
+        <div class="disc-wrapper pos-1">
+            <button class="orbit-disc" onclick="openWindow('About')">About</button>
+        </div>
+        <div class="disc-wrapper pos-2">
+            <button class="orbit-disc" onclick="openWindow('Research')">Research</button>
+        </div>
+        <div class="disc-wrapper pos-3">
+            <button class="orbit-disc" onclick="openWindow('Publications')">Publications</button>
+        </div>
+        <div class="disc-wrapper pos-4">
+             <button class="orbit-disc" onclick="openWindow('More')">More</button>
+        </div>
+        <div class="disc-wrapper pos-5">
+            <button class="orbit-disc" onclick="openWindow('Teaching')">Teaching</button>
+        </div>
+        <div class="disc-wrapper pos-6">
+	    <button class="orbit-disc" onclick="openWindow('Presentations')">Presentations</button>
+        </div>
+    </div>
+
+<!-- Floating Social Icons (Bottom Right) -->
+    <div class="floating-socials">
+        <a href="mailto:Dimitrios.Tsintsilidas@warwick.ac.uk" class="social-icon" title="Email">
+            <i class="fa-solid fa-envelope"></i>
+        </a>
+        <a href="https://scholar.google.com/citations?user=dvqi49MAAAAJ&hl=en" target="_blank" class="social-icon" title="Google Scholar">
+            <i class="ai ai-google-scholar"></i>
+        </a>
+        <a href="https://orcid.org/0009-0006-4180-0348" target="_blank" class="social-icon" title="ORCID">
+            <i class="ai ai-orcid"></i>
+        </a>
+    </div>
+
+    <!-- Modal Window -->
+    <div id="content-window" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeWindow()">&times;</span>
+            <h2 id="window-title">Title</h2>
+            <div id="window-body">
+                <p>Your content will load here.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Link to your JavaScript file -->
+    <script src="script.js" defer></script>
+</body>
+</html>
