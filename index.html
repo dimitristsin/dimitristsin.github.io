@@ -21,11 +21,42 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
+    <style>
+        .site-intro {
+            position: absolute;
+            top: 82px;
+            left: 32px;
+            z-index: 20;
+            width: min(430px, calc(100vw - 64px));
+            margin: 0;
+            color: rgba(237, 242, 250, 0.76);
+            font-family: 'Nunito', sans-serif;
+            font-size: clamp(0.82rem, 1.25vw, 0.98rem);
+            line-height: 1.55;
+            letter-spacing: 0.01em;
+            text-shadow: 0 3px 12px rgba(0, 0, 0, 0.75);
+            pointer-events: none;
+        }
+
+        @media (max-width: 700px) {
+            .site-intro {
+                top: 68px;
+                left: 30px;
+                width: min(360px, calc(100vw - 60px));
+                font-size: 0.82rem;
+                line-height: 1.45;
+            }
+        }
+    </style>
+
 </head>
 <body>
 
     <!-- Main Page Title (Top Left) -->
     <h1 class="main-title">Dimitrios Tsintsilidas</h1>
+    <p class="site-intro">
+        PhD student in theoretical computer science at the University of Warwick. I work on proof complexity, bounded arithmetic, and algebraic complexity. Here you can find my research, publications, talks, and teaching.
+    </p>
 
     <!-- The Animated Background Canvas -->
     <canvas id="particle-canvas"></canvas>
