@@ -21,6 +21,58 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
+    <!-- Redesign experiment: visual refinement of the existing orbit only -->
+    <style>
+        .orbit-path {
+            border-width: 1px;
+            border-color: rgba(154, 178, 255, 0.20);
+            box-shadow: 0 0 26px rgba(130, 160, 255, 0.035);
+        }
+
+        .orbit-disc {
+            width: 22.5vmin;
+            height: 22.5vmin;
+            padding: 16px;
+            background: linear-gradient(145deg, rgba(35, 43, 72, 0.94), rgba(39, 31, 53, 0.94));
+            border: 1px solid rgba(175, 190, 235, 0.18);
+            box-shadow:
+                0 10px 28px rgba(0, 0, 0, 0.28),
+                inset 0 1px 0 rgba(255, 255, 255, 0.035);
+            font-size: clamp(0.72rem, 2.25vw, 1.08rem);
+            letter-spacing: 0.035em;
+            transition:
+                transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+                background 0.28s ease,
+                box-shadow 0.28s ease,
+                border-color 0.28s ease;
+        }
+
+        .orbit-disc:hover {
+            transform: scale(1.055);
+            background: linear-gradient(145deg, rgba(45, 55, 92, 0.98), rgba(55, 38, 69, 0.98));
+            border-color: rgba(180, 196, 255, 0.42);
+            box-shadow:
+                0 14px 34px rgba(0, 0, 0, 0.32),
+                0 0 20px rgba(130, 160, 255, 0.09),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        .orbit-disc:active {
+            transform: scale(0.985);
+            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.28);
+        }
+
+        @media (max-width: 700px) {
+            .orbit-disc {
+                width: 23vmin;
+                height: 23vmin;
+                min-width: 78px;
+                min-height: 78px;
+                padding: 10px;
+            }
+        }
+    </style>
+
 </head>
 <body>
 
