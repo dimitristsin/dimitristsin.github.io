@@ -21,91 +21,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
-    <style>
-        .site-intro {
-            position: absolute;
-            top: 82px;
-            left: 30px;
-            z-index: 20;
-            width: min(375px, calc(100vw - 60px));
-            box-sizing: border-box;
-            padding: 17px 18px 16px;
-            color: rgba(237, 242, 250, 0.88);
-            background:
-                linear-gradient(145deg, rgba(38, 45, 102, 0.24), rgba(79, 47, 73, 0.17)),
-                rgba(11, 14, 20, 0.54);
-            border: 1px solid rgba(180, 190, 235, 0.17);
-            border-radius: 16px;
-            box-shadow:
-                0 14px 36px rgba(0, 0, 0, 0.24),
-                inset 0 1px 0 rgba(255, 255, 255, 0.035);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            font-family: 'Nunito', sans-serif;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.38);
-            pointer-events: none;
-        }
-
-        .intro-label {
-            display: block;
-            margin-bottom: 9px;
-            color: #9fb3ff;
-            font-size: 0.68rem;
-            font-weight: 800;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-        }
-
-        .intro-copy {
-            margin: 0;
-            font-size: clamp(0.84rem, 1.15vw, 0.96rem);
-            line-height: 1.58;
-            letter-spacing: 0.005em;
-            text-align: left;
-        }
-
-        .intro-links {
-            margin: 12px 0 0;
-            padding-top: 11px;
-            border-top: 1px solid rgba(180, 190, 235, 0.11);
-            color: rgba(200, 211, 245, 0.56);
-            font-size: 0.73rem;
-            font-weight: 700;
-            letter-spacing: 0.035em;
-        }
-
-        @media (max-width: 700px) {
-            .site-intro {
-                top: 68px;
-                left: 24px;
-                width: min(330px, calc(100vw - 48px));
-                padding: 14px 15px 13px;
-                border-radius: 14px;
-            }
-
-            .intro-copy {
-                font-size: 0.82rem;
-                line-height: 1.48;
-            }
-
-            .intro-links {
-                font-size: 0.68rem;
-            }
-        }
-    </style>
-
 </head>
 <body>
 
     <!-- Main Page Title (Top Left) -->
     <h1 class="main-title">Dimitrios Tsintsilidas</h1>
-    <div class="site-intro">
-        <span class="intro-label">Welcome</span>
-        <p class="intro-copy">
-            I am a PhD student in theoretical computer science at the University of Warwick. I work on proof complexity, bounded arithmetic, and algebraic complexity.
-        </p>
-        <p class="intro-links">Research · Publications · Presentations · Teaching</p>
-    </div>
 
     <!-- The Animated Background Canvas -->
     <canvas id="particle-canvas"></canvas>
