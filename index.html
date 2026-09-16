@@ -24,10 +24,19 @@
     <!-- Redesign experiment: visual refinement of the existing orbit only -->
     <style>
         .orbit-path {
+            width: 64vmin;
+            height: 64vmin;
             border-width: 1px;
             border-color: rgba(154, 178, 255, 0.20);
             box-shadow: 0 0 26px rgba(130, 160, 255, 0.035);
         }
+
+        .pos-1 { transform: rotate(240deg) translate(32vmin) rotate(-240deg); }
+        .pos-2 { transform: rotate(300deg) translate(32vmin) rotate(-300deg); }
+        .pos-3 { transform: rotate(0deg) translate(32vmin) rotate(0deg); }
+        .pos-4 { transform: rotate(60deg) translate(32vmin) rotate(-60deg); }
+        .pos-5 { transform: rotate(120deg) translate(32vmin) rotate(-120deg); }
+        .pos-6 { transform: rotate(180deg) translate(32vmin) rotate(-180deg); }
 
         .orbit-disc {
             width: 22.5vmin;
