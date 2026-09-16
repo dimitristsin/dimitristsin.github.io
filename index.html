@@ -56,10 +56,10 @@
 
         .orbit-arc path {
             fill: none;
-            stroke: rgba(164, 185, 255, 0.34);
-            stroke-width: 2.3;
+            stroke: rgba(200, 180, 220, 0.4);
+            stroke-width: 2.4;
             vector-effect: non-scaling-stroke;
-            filter: drop-shadow(0 0 8px rgba(130, 160, 255, 0.08));
+            filter: drop-shadow(0 0 8px rgba(200, 180, 220, 0.1));
         }
 
         .disc-wrapper {
@@ -84,12 +84,12 @@
             min-height: 0;
             padding: 11px;
             border-radius: 50%;
-            background: linear-gradient(145deg, rgba(35, 43, 72, 0.97), rgba(39, 31, 53, 0.97));
-            border: 1px solid rgba(184, 198, 240, 0.22);
-            color: rgba(237, 242, 250, 0.9);
+            background: linear-gradient(135deg, #262D66 0%, #4F2F49 100%);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: #ffffff;
             box-shadow:
-                0 9px 25px rgba(0, 0, 0, 0.31),
-                inset 0 1px 0 rgba(255, 255, 255, 0.04);
+                0 9px 25px rgba(0, 0, 0, 0.34),
+                inset 0 0 10px rgba(255, 255, 255, 0.07);
             font-family: 'Nunito', sans-serif;
             font-weight: 800;
             font-size: clamp(0.72rem, 1.35vw, 0.98rem);
@@ -106,29 +106,29 @@
 
         .orbit-disc:hover {
             transform: scale(1.045);
-            background: linear-gradient(145deg, rgba(45, 55, 92, 0.99), rgba(55, 38, 69, 0.99));
-            border-color: rgba(184, 200, 255, 0.48);
+            background: linear-gradient(135deg, #613985, #42275a);
+            border-color: rgba(255, 255, 255, 0.7);
             color: #fff;
             box-shadow:
                 0 12px 30px rgba(0, 0, 0, 0.33),
-                0 0 18px rgba(130, 160, 255, 0.11);
+                0 0 24px rgba(200, 150, 255, 0.24);
         }
 
         .orbit-disc.active {
-            background: linear-gradient(145deg, rgba(57, 70, 118, 0.99), rgba(69, 44, 85, 0.99));
-            border-color: rgba(185, 203, 255, 0.72);
+            background: linear-gradient(135deg, #613985, #42275a);
+            border-color: rgba(255, 255, 255, 0.78);
             color: #fff;
             box-shadow:
-                0 12px 32px rgba(0, 0, 0, 0.34),
-                0 0 24px rgba(130, 160, 255, 0.17),
-                inset 0 1px 0 rgba(255, 255, 255, 0.06);
+                0 12px 32px rgba(0, 0, 0, 0.36),
+                0 0 26px rgba(200, 150, 255, 0.28),
+                inset 0 0 10px rgba(255, 255, 255, 0.08);
         }
 
         .orbit-disc:active {
             transform: scale(0.985);
         }
 
-        /* Persistent centre stage, pulled upward and slightly reduced for full-page visibility. */
+        /* Persistent centre stage, using the original site's translucent dark treatment. */
         .modal {
             display: flex;
             position: fixed;
@@ -154,14 +154,11 @@
             overflow-y: auto;
             padding: clamp(20px, 2.6vw, 32px);
             border-radius: 18px;
-            background:
-                linear-gradient(145deg, rgba(19, 24, 37, 0.90), rgba(15, 17, 26, 0.85));
-            border: 1px solid rgba(169, 185, 230, 0.16);
-            box-shadow:
-                0 22px 64px rgba(0, 0, 0, 0.32),
-                inset 0 1px 0 rgba(255, 255, 255, 0.025);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
+            background: rgba(11, 14, 20, 0.8);
+            border: 1px solid rgba(200, 180, 220, 0.3);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.55);
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
             text-align: left;
             color: #edf2fa;
             animation: none;
@@ -171,7 +168,7 @@
         #window-title {
             margin: 0 0 14px;
             padding-bottom: 10px;
-            border-bottom: 1px solid rgba(169, 185, 230, 0.12);
+            border-bottom: 1px solid rgba(200, 180, 220, 0.2);
             font-size: clamp(1.35rem, 2.35vw, 1.9rem);
             letter-spacing: 0.01em;
         }
