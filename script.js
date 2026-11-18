@@ -1,77 +1,125 @@
-// --- 1. MODAL LOGIC WITH URL UPDATES & FETCH ---
+// --- 1. ACCESSIBLE SECTION DIALOG & URL NAVIGATION ---
 const modal = document.getElementById("content-window");
 const modalTitle = document.getElementById("window-title");
 const modalBody = document.getElementById("window-body");
 const radialNav = document.querySelector(".radial-nav-container");
-const mainName = document.querySelector(".main-title"); // NEW: Targets your name
-const socialIcons = document.querySelector(".floating-socials"); // NEW
+const mainName = document.querySelector(".main-title");
+const socialIcons = document.querySelector(".floating-socials");
+const backgroundRegions = [radialNav, mainName, socialIcons];
+const sectionNames = ["About", "Research", "Publications", "Presentations", "Teaching", "More"];
+const sectionButtons = Array.from(radialNav.querySelectorAll("button"));
+const focusableSelector = 'a[href], button:not([disabled]), summary, input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+let returnFocus = null;
+let contentRequest = null;
 
-function openWindow(sectionName) {
-    modalTitle.innerText = sectionName;
+sectionButtons.forEach(button => {
+    button.type = "button";
+    button.setAttribute("aria-haspopup", "dialog");
+    button.setAttribute("aria-controls", "content-window");
+});
+
+function setBackgroundAvailable(available) {
+    backgroundRegions.forEach(region => {
+        region.inert = !available;
+        region.style.opacity = available ? "1" : "0";
+        region.style.pointerEvents = available ? "" : "none";
+        if (available) region.removeAttribute("aria-hidden");
+        else region.setAttribute("aria-hidden", "true");
+    });
+}
+
+async function openWindow(sectionName, { updateHistory = true } = {}) {
+    if (!sectionNames.includes(sectionName)) return;
+    const wasClosed = modal.hidden;
+    if (wasClosed) {
+        returnFocus = sectionButtons.find(button => button.textContent.trim() === sectionName);
+    }
+    modalTitle.textContent = sectionName;
+    modal.hidden = false;
     modal.style.display = "flex";
-    
-    // Fades out the radial menu and your name
-    radialNav.style.opacity = "0";
-    radialNav.style.pointerEvents = "none";
-    mainName.style.opacity = "0"; // NEW
-    socialIcons.style.opacity = "0"; // NEW
-    socialIcons.style.pointerEvents = "none"; // NEW
-    
-    window.history.pushState({ section: sectionName }, "", "#" + sectionName);
+    modalTitle.focus({ preventScroll: true });
+    setBackgroundAvailable(false);
 
+    if (updateHistory && window.location.hash !== "#" + sectionName) {
+        window.history.pushState({ section: sectionName }, "", "#" + sectionName);
+    }
+
+    contentRequest?.abort();
+    const request = new AbortController();
+    contentRequest = request;
+    modalBody.setAttribute("aria-busy", "true");
     modalBody.innerHTML = "<p>Loading...</p>";
 
-    let fileName = sectionName.toLowerCase() + ".html";
-    
-    fetch(fileName)
-        .then(response => {
-            if (!response.ok) throw new Error("File not found");
-            return response.text();
-        })
-        .then(htmlData => {
-            modalBody.innerHTML = htmlData; 
-            
-            if (window.MathJax) {
-                MathJax.typesetPromise([modalBody]).catch(function (err) {
-                    console.log('MathJax error: ', err.message);
-                });
-            }
-        })
-        .catch(error => {
-            modalBody.innerHTML = `<p>Content for ${sectionName} is coming soon!</p>`;
-        });
-}
-
-function closeWindow() {
-    modal.style.display = "none";
-    
-    // Fades the radial menu and your name back in
-    radialNav.style.opacity = "1";
-    radialNav.style.pointerEvents = "auto";
-    mainName.style.opacity = "1"; // NEW
-    socialIcons.style.opacity = "1"; // NEW
-    socialIcons.style.pointerEvents = "auto"; // NEW
-    
-    window.history.pushState("", document.title, window.location.pathname + window.location.search);
-}
-
-window.onclick = function(event) {
-    if (event.target == modal) {
-        closeWindow();
+    try {
+        const response = await fetch(sectionName.toLowerCase() + ".html", { signal: request.signal });
+        if (!response.ok) throw new Error("File not found");
+        const html = await response.text();
+        if (request.signal.aborted) return;
+        modalBody.innerHTML = html;
+        if (window.MathJax?.typesetPromise) {
+            window.MathJax.typesetPromise([modalBody]).catch(error => {
+                console.log("MathJax error:", error.message);
+            });
+        }
+    } catch (error) {
+        if (error.name === "AbortError") return;
+        modalBody.textContent = "Content for " + sectionName + " is coming soon!";
+    } finally {
+        if (contentRequest === request) modalBody.setAttribute("aria-busy", "false");
     }
 }
 
-window.addEventListener('popstate', function() {
-    if (window.location.hash) {
-        let section = window.location.hash.substring(1);
-        openWindow(section);
-    } else {
-        modal.style.display = "none";
-        radialNav.style.opacity = "1";
-        radialNav.style.pointerEvents = "auto";
-        mainName.style.opacity = "1"; // NEW
-	socialIcons.style.opacity = "1"; // NEW
-	socialIcons.style.pointerEvents = "auto"; // NEW
+function closeWindow({ updateHistory = true } = {}) {
+    if (modal.hidden) return;
+    contentRequest?.abort();
+    modal.hidden = true;
+    modal.style.display = "none";
+    modalBody.setAttribute("aria-busy", "false");
+    setBackgroundAvailable(true);
+    if (updateHistory && window.location.hash) {
+        window.history.pushState(null, "", window.location.pathname + window.location.search);
+    }
+    if (returnFocus?.isConnected) returnFocus.focus({ preventScroll: true });
+}
+
+modal.addEventListener("click", event => {
+    if (event.target === modal) closeWindow();
+});
+
+document.addEventListener("keydown", event => {
+    if (modal.hidden) return;
+    if (event.key === "Escape") {
+        event.preventDefault();
+        closeWindow();
+    } else if (event.key === "Tab") {
+        const focusable = Array.from(modal.querySelectorAll(focusableSelector))
+            .filter(element => element.getClientRects().length > 0 && !element.closest("[inert]"));
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (!first) {
+            event.preventDefault();
+            modalTitle.focus();
+        } else if (event.shiftKey && (document.activeElement === first || !focusable.includes(document.activeElement))) {
+            event.preventDefault();
+            last.focus();
+        } else if (!event.shiftKey && (document.activeElement === last || !focusable.includes(document.activeElement))) {
+            event.preventDefault();
+            first.focus();
+        }
+    }
+});
+
+function syncSectionWithUrl() {
+    const section = window.location.hash.slice(1);
+    if (sectionNames.includes(section)) openWindow(section, { updateHistory: false });
+    else closeWindow({ updateHistory: false });
+}
+
+window.addEventListener("popstate", syncSectionWithUrl);
+window.addEventListener("hashchange", () => {
+    const section = window.location.hash.slice(1);
+    if ((modal.hidden && sectionNames.includes(section)) || (!modal.hidden && modalTitle.textContent !== section)) {
+        syncSectionWithUrl();
     }
 });
 
@@ -134,11 +182,11 @@ function resizeCanvas() {
 window.addEventListener('resize', resizeCanvas);
 resizeCanvas(); // Trigger initially
 
-function animate() {
+function drawNetwork() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     for (let i = 0; i < particles.length; i++) {
-        particles[i].update();
+        if (!reducedMotion.matches) particles[i].update();
         particles[i].draw();
 
         for (let j = i + 1; j < particles.length; j++) {
@@ -159,15 +207,29 @@ function animate() {
             }
         }
     }
-    requestAnimationFrame(animate);
 }
 
-window.onload = () => {
-    animate();
-    
-    // Check if someone loaded the page with a link like yoursite.com/#About
-    if (window.location.hash) {
-        let section = window.location.hash.substring(1);
-        openWindow(section);
+function animate() {
+    drawNetwork();
+    animationFrame = requestAnimationFrame(animate);
+}
+
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+let animationFrame = null;
+
+function updateMotionPreference() {
+    if (animationFrame !== null) cancelAnimationFrame(animationFrame);
+    animationFrame = null;
+    if (reducedMotion.matches) {
+        drawNetwork();
+    } else {
+        animate();
     }
-};
+}
+
+reducedMotion.addEventListener("change", updateMotionPreference);
+window.addEventListener("resize", () => {
+    if (reducedMotion.matches) drawNetwork();
+});
+updateMotionPreference();
+syncSectionWithUrl();
